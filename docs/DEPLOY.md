@@ -32,8 +32,10 @@ Outside services:
    into the bucket in the Cloudflare dashboard under R2 → `sala-store-files`, using folders named `ebooks/<handle>/`.
    A product with no file shows "Coming soon" and can't be bought.
 4. Deploy: `npm run deploy`. The store is now live at `https://sala-store.<account>.workers.dev` for testing.
-   From then on, GitHub deploys every push to `main` after tests pass. Add repository secrets `CLOUDFLARE_API_TOKEN`
-   and `CLOUDFLARE_ACCOUNT_ID`.
+   From then on, GitHub deploys every push to `main` after tests pass. Add the repository secret `CLOUDFLARE_API_TOKEN`
+   (the account id is in `wrangler.jsonc`). Note: from a Claude cloud session, `wrangler deploy` fails at the asset upload
+   (401), because the session proxy replaces the upload's own token. Deploy through the GitHub workflow instead
+   (Actions → Deploy → Run workflow). Everything else (`d1`, `r2`, `secret put`) works from the session.
 5. In the Tap dashboard, set the webhook URL to `https://<host>/api/tap/webhook` (the charge also sends `post.url`, so this is a backup).
 
 ## Test purchase checklist (Tap test keys)

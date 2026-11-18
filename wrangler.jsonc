@@ -3,6 +3,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sala-store",
+  "account_id": "8b489d962be32c0a4099401943285150",
   "main": "worker/index.js",
   "compatibility_date": "2026-11-01",
   "assets": {

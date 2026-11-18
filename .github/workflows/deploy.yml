@@ -1,6 +1,6 @@
 name: Deploy
 # Deploys the Worker after tests pass on main. Skips (green) until Cloudflare is set up: needs repository secrets
-# CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID, and a real D1 database_id in wrangler.jsonc (docs/DEPLOY.md).
+# CLOUDFLARE_API_TOKEN (the account id and D1 database id are in wrangler.jsonc; docs/DEPLOY.md).
 on:
   workflow_run:
     workflows: [Test]
@@ -29,7 +29,6 @@ jobs:
       - if: steps.ready.outputs.go == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           npx wrangler d1 migrations apply store --remote
           npx wrangler deploy
