@@ -269,11 +269,17 @@ await test("every page shows the Arabic trade name, CR 502625 and licence 2024/1
     assert.match(h, /رقم الترخيص التجاري: 2024\/16512/, p);
     assert.match(h, /رقم السجل التجاري: 502625 \(بتاريخ: 23\/05\/2024\)/, p);
     assert.match(h, /شركة الشخص الواحد/, p);
+    assert.match(h, /41030312/, p);
   }
   const prod = await (await fetch(BASE + "/products/the-nadia-upgrade")).text();
   assert.match(prod, /ترقية نادية/);
   assert.match(prod, /4\.000 د\.ك/);
   assert.match(await (await fetch(BASE + "/complaints")).text(), /135/);
+  const privacy = await (await fetch(BASE + "/policies/privacy-policy")).text();
+  assert.doesNotMatch(privacy, /Shopify/);
+  assert.match(privacy, /do <strong>not<\/strong> collect your postal or billing address/);
+  assert.match(privacy, /Cloudflare/);
+  assert.match(await (await fetch(BASE + "/policies/contact-information")).text(), /2024\/16512/);
 });
 await test("order API carries invoice fields; receipt email is bilingual with company identity", async () => {
   const o = await get(`/api/order?id=${paid.order_id}&t=${paid.view}`);

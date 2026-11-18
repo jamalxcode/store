@@ -19,7 +19,7 @@ Rules:
   `shopify-export/` is the frozen Shopify pull, so don't edit it. `public/` is build output (gitignored).
 - Keep Shopify URL paths (`/products/<handle>`, `/collections/<handle>`, `/blogs/news/<handle>`, `/policies/<name>`).
   Old paths go in the `_redirects` block of `tools/build.mjs`.
-- Policies are bilingual EN/AR, word for word from Shopify. Change them only when the owner asks.
+- Policies are bilingual EN/AR (from Shopify, owner-approved edits on 18 Nov 2026). Change them only when the owner asks, in both languages.
 - An order is paid only when `GET /v2/charges/{id}` at Tap says CAPTURED with a matching amount, currency and order id.
   Never trust the redirect or the webhook body. Fulfilment is idempotent (`UPDATE ... WHERE status != 'paid'`).
 - Ebook files live only in R2 under `ebooks/<handle>/`. Never in git, never public. A product with no file can't be sold.

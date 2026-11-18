@@ -65,7 +65,7 @@ The full control-by-control audit is in [compliance/AUDIT.md](compliance/AUDIT.m
 - **Before payment**, checkout shows: final total, no fees or shipping, instant delivery, returns link, payment methods, and bilingual agreement to the terms.
 - **Complaints**: `/complaints` form → reference `C-XXXXXXXX` emailed to the customer, complaint emailed to the owner (reply-to the customer), stored in D1 table `complaints` (kept ≥ 6 months, never auto-deleted). Promise: reply within 2 business days, resolve within 7 (`site.json` → `complaints`). The page shows escalation to MOCI (online service, phone 135). Limits: 5 per IP and 5 per email per hour.
 
-- The five policies (privacy, refund, shipping/digital delivery, terms, contact information) are carried over **word for word** from Shopify, bilingual, at `/policies/<name>`. They change only when the owner asks.
+- The five policies (privacy, refund, shipping/digital delivery, terms, contact information) were carried over from Shopify, bilingual, at `/policies/<name>`. On 18 Nov 2026, with the owner's approval, the privacy policy was updated (no address, real providers), the licence/CR numbers corrected, and phone, capital and complaints added to the contact information. They change only when the owner asks.
 - Orders, including email, name, items, amount, Tap charge id and timestamps, are kept for **at least 5 years**, as the privacy policy states, citing the Digital Commerce Law. Every state change is logged in `events`.
 - Refunds follow the refund policy: no returns once a file is accessed, except corrupt or undelivered files, misdescription, or a technical error reported within 7 days. Refunds are issued by hand in the Tap dashboard.
 

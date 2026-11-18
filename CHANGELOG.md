@@ -15,8 +15,14 @@
 ### Company register details
 - From the commercial register extract: CR **502625** (23/05/2024), licence **2024/16512** (freelance business licence), legal form **شركة الشخص الواحد**, capital **1000 KWD**. All are in the identity block on every page, email and invoice (capital on invoices). Earlier versions called 502625 the licence number, which was wrong. The documents themselves aren't stored in the repo, which is public.
 
-### Still missing for full compliance
-- Business phone, paid-up amount, and confirmation that licensed activity 620200 covers ebook sales.
+### Owner answers applied
+- Phone **+965 41030312** and capital **1000 KWD fully paid** on every footer, invoice and email.
+- Policies updated with approval: the privacy policy now matches the new store (no address; Tap, Cloudflare, Resend, GoatCounter; Shopify removed). CR and licence numbers corrected in all policies. Contact information gains legal form, capital, phone and complaints.
+- Refund policy and Arabic product texts kept as is. Newsletter, search and orders page not wanted for now. Cutover tentatively about 2 December 2026.
+
+### Still open
+- Confirm that licensed activity 620200 covers ebook sales (MOCI).
+- Tap test key in Cloudflare; ebook files pulled from Shopify.
 - Privacy policy update (draft waiting for approval).
 
 ## 2026-11-18 (earlier)
