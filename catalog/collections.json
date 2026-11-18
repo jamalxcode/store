@@ -1,0 +1,22 @@
+[
+  {
+    "handle": "ai-ebooks",
+    "title": "AI eBooks",
+    "description": "Empower yourself with an all round knowledge of AI."
+  },
+  {
+    "handle": "business",
+    "title": "Business",
+    "description": "Learn Business, be in control of your finances and your future."
+  },
+  {
+    "handle": "children-ebooks",
+    "title": "Children eBooks",
+    "description": "Interesting fun books for your children to enjoy and learn."
+  },
+  {
+    "handle": "featured",
+    "title": "eBook video trailers",
+    "description": "Exciting science fiction stories as ebooks. Introducing ZK, the boy who defied the machine and Nadia, the girl who wanted to upgrade her abilities and be better."
+  }
+]

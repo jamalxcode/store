@@ -61,6 +61,8 @@ def want(url, folder):
     # cdn.shopify.com/s/files/<shop>/files/x is also served at <store>/cdn/shop/files/x
     url = re.sub(r"^https://cdn\.shopify\.com/s/files/[\d/]+/files/", BASE + "/cdn/shop/files/", url)
     clean = url.split("?")[0]
+    if clean in media:  # first folder wins (products before theme)
+        return media[clean]
     name = os.path.basename(urlparse(clean).path)
     rel = f"media/{folder}/{name}"
     media[clean] = rel
@@ -129,6 +131,7 @@ for p in ["privacy-policy", "refund-policy", "shipping-policy", "terms-of-servic
     try:
         pol = json.loads(get(f"{BASE}/policies/{p}.json"))["policy"]
         save(f"policies/{p}.md", f"# {pol['title']}\n\n{text(pol['body'])}\n")
+        save_json(f"policies/{p}.json", {"title": pol["title"], "handle": p, "body_html": pol["body"]})
     except Exception as e:  # noqa: BLE001
         print("policy", p, e)
 

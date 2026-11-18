@@ -1,0 +1,455 @@
+[
+  {
+    "handle": "ai-explained-a-teens-guide-to-the-artificial-intelligence-future",
+    "title": "AI Explained: A Teen's Guide to the Artificial Intelligence Future",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [
+      "ai-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/aiforteens.jpg",
+        "width": 2369,
+        "height": 2747,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>In \"AI Explained: A Teen's Guide to the Artificial Intelligence Future,\" author Jamal Faisal Amutawa breaks down the complex world of artificial intelligence into clear, engaging explanations perfect for curious young minds. This comprehensive guide takes readers on a fascinating journey through the technology that is rapidly reshaping our world. From understanding how AI systems actually learn and \"think\" to exploring the massive computing resources that power them, the book makes cutting-edge concepts accessible without sacrificing accuracy. Readers will discover how pattern recognition allows computers to identify faces and interpret language, how tokens work in language models, and how AI processes information fundamentally differently from humans.</p>\n<p>Beyond just explaining the technology, Jamal thoughtfully examines AI's real-world applications across healthcare, education, entertainment, and more, while addressing important ethical considerations like privacy, bias, and job displacement. The book concludes with an empowering message about the various career paths and opportunities available to today's teens in the AI-driven future.</p>\n<p>Perfect for technology-curious teenagers, STEM students, and young people wondering how AI will shape their future careers and lives, this book requires no prior technical knowledge—just bring your curiosity and prepare to understand the AI revolution that's happening all around us.</p>",
+    "created": "2025-08-16"
+  },
+  {
+    "handle": "reddington-the-fox",
+    "title": "Reddington the Fox",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/reddingtonthefoxbookcover.jpg",
+        "width": 2308,
+        "height": 2866,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Reddington the Kind Fox lives in a peaceful forest where he helps his animal friends in times of need. From finding lost baby rabbits to helping an injured bird and an old turtle, his kindness touches everyone. One day, the forest animals surprise him with a celebration to show their gratitude.</p>\n<p>This heartwarming tale teaches young readers that kindness always finds its way back to you.</p>",
+    "created": "2025-07-29"
+  },
+  {
+    "handle": "the-nadia-upgrade",
+    "title": "The Nadia Upgrade",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "featured"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/TheNadiaUpgradeCover.png",
+        "width": 1090,
+        "height": 1994,
+        "alt": ""
+      }
+    ],
+    "video": "shopify-export/media/videos/19328b4ffee04ff7b605c3bea7cca171.HD-720p-4.5Mbps-50505020.mp4",
+    "description_html": "<p>Every day, she rewrites herself. Until there’s nothing left to rewrite.<br>In a future that feels like today, a young woman receives a strange device that lets her choose who she wants to become. Smarter. Bolder. More beautiful. Less human.<br>Told in haunting diary entries, this is a story about control, identity, and the terrifying allure of self-perfection.<br>For readers who love character-driven sci-fi with a slow burn and a deep philosophical undercurrent.<br></p>",
+    "created": "2025-05-18"
+  },
+  {
+    "handle": "the-boy-who-defied-the-machine",
+    "title": "The Boy Who Defied the Machine",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "featured"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/the_boy_who_defied_the_machine.jpg",
+        "width": 2371,
+        "height": 3309,
+        "alt": ""
+      },
+      {
+        "src": "shopify-export/media/products/the_boy_-_page_1.png",
+        "width": 1510,
+        "height": 1940,
+        "alt": ""
+      },
+      {
+        "src": "shopify-export/media/products/the_boy_-_page_3.png",
+        "width": 1474,
+        "height": 1860,
+        "alt": ""
+      },
+      {
+        "src": "shopify-export/media/products/the_boy_-_page_2.png",
+        "width": 1454,
+        "height": 1892,
+        "alt": ""
+      }
+    ],
+    "video": "shopify-export/media/videos/a420936973df47b9999bd1a04168784d.HD-720p-4.5Mbps-50505471.mp4",
+    "description_html": "<p>In a world where digital threats lurk behind every screen, ZK is a young hacker who thrives in the shadows of the digital realm. His skills draw the attention of a powerful rogue AI, Cerberus, which begins to hunt him across the globe. In a desperate bid for survival, ZK seeks refuge in a hidden training facility known as Box Zero, where he learns to navigate the intricate balance between the digital and physical worlds.<br>Under the guidance of unconventional mentors, ZK evolves from a reckless hacker into a master strategist, discovering that survival involves more than just outsmarting technology—it requires understanding the complexities of human nature. As he embraces the analog wisdom of his training, ZK realizes that the greatest battles are fought not just with code, but with creativity and ingenuity.</p>\n<p>\"The Boy Who Defied the Machine\" is a gripping tale of resilience, where courage and wit collide in a battle against an entity that blurs the lines between man and machine. It explores themes of identity, the consequences of technology, and the importance of understanding the very systems we create</p>",
+    "created": "2025-03-20"
+  },
+  {
+    "handle": "ai-revolution-collection-from-art-to-code",
+    "title": "AI Revolution Collection - From Art to Code",
+    "price_fils": 24000,
+    "kind": "bundle",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [],
+    "includes": [
+      "the-ai-powered-productivity-handbook",
+      "art-in-the-age-of-ai",
+      "super-coder"
+    ],
+    "images": [
+      {
+        "src": "shopify-export/media/products/aibooks.jpg",
+        "width": 2484,
+        "height": 1441,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Embark on a transformative journey with the \"AI Innovators Toolkit: From Art to Code,\" a meticulously curated ebook bundle that equips you with the essentials of leveraging artificial intelligence across various domains. This collection includes three pivotal works:</p>\n<p>The AI-Powered Productivity Handbook - Dive into the world of enhanced efficiency as this guide walks you through the revolutionary use of AI tools like ChatGPT to supercharge your productivity. Whether you're streamlining daily tasks or accelerating complex projects, discover strategies that condense days of work into minutes, setting a new standard for personal and professional achievement.</p>\n<p>Art in the Age of AI - Explore the fascinating intersection of creativity and technology in the realm of AI-generated art. This book delves into the mechanics of how AI interprets text prompts to create stunning visual art, altering the landscape of industries like gaming, film, and beyond. With practical tips on crafting effective prompts and insights into future trends, you're invited to witness and partake in the creative revolution driven by AI.</p>\n<p>Super Coder: Get AI Super Coding Powers with the Help of AI by Jamal Faisal Almutawa - Ideal for those new to programming, this accessible guide demystifies the process of developing browser-based games and applications with AI assistance. Learn to harness the power of AI coding tools to build engaging digital experiences, from simple games to complex software, without prior coding expertise.</p>\n<p>Whether you're an artist, a productivity seeker, or an aspiring coder, the \"AI Innovators Toolkit: From Art to Code\" offers valuable insights and practical skills to navigate and master the AI landscape. Unleash your potential and lead the way in the AI-driven future!<br></p>",
+    "created": "2025-01-25"
+  },
+  {
+    "handle": "super-coder-source-code",
+    "title": "Super Coder - Source Code",
+    "price_fils": 0,
+    "kind": "source code",
+    "author": null,
+    "collections": [],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/sourcecode.jpg",
+        "width": 4049,
+        "height": 2528,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Contains all the source code generated in the super coder book for free.<br>Not a laptop or macbook, just code.</p>",
+    "created": "2024-11-28"
+  },
+  {
+    "handle": "super-coder",
+    "title": "Super Coder",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [
+      "ai-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/super_coder_cover_new.png",
+        "width": 726,
+        "height": 948,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>\"Super Coder: Get AI Super Coding Powers with the Help of AI\" by Jamal Faisal Almutawa is a practical guide that empowers individuals with little to no coding experience to create browser-based games and applications using AI assistance. The book introduces readers to AI-powered coding assistants like ChatGPT, teaching them how to formulate effective prompts to generate code for various projects. It covers the creation of games such as number guessing, rock-paper-scissors, and memory matching, emphasizing creativity and problem-solving while letting AI handle the technical implementation. The author's approach is particularly well-suited for budding authors, educators, and individuals who enjoy sharing knowledge in an accessible, fun-to-read format.<br></p>",
+    "created": "2024-11-28"
+  },
+  {
+    "handle": "fun-kuwait",
+    "title": "Fun Kuwait Themed Letters (Font)",
+    "price_fils": 0,
+    "kind": "font",
+    "author": null,
+    "collections": [],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/this_is_a_free_kuwait_themed_font.png",
+        "width": 2424,
+        "height": 1635,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Here is a fun font you can use that features Kuwait scenes and buildings, built with the help of AI.</p>",
+    "created": "2024-08-09"
+  },
+  {
+    "handle": "from-footsteps-to-flight",
+    "title": "From Footsteps to Flight",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/bookcoverfootstepstoflight.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Embark on a thrilling journey through time with 'From Footsteps to Flight: A Child's History of Transportation'! This vividly illustrated book takes young readers on an exciting adventure, exploring how people have traveled from the days of prehistoric walking trails to the futuristic possibilities of teleportation. Each page bursts with colorful illustrations and engaging stories, showcasing different modes of transport - from horse-drawn carriages and majestic sailing ships to high-speed trains and beyond. Perfect for curious minds aged 2 to 7, this book not only teaches the history of transportation but also inspires teamwork, innovation, and the spirit of exploration. It's a captivating introduction to the wonders of human movement and how it has shaped our world, making it a must-have for little learners ready to explore the past, present, and future of travel!</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "meet-the-animals",
+    "title": "Meet the Animals",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/meet_the_animals_cover.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>\"Meet the Animals\" by Jamal Faisal Almutawa is a children's book introducing various animal characters like Bubbles the pup, Whiskers the kitty, and Thumper the bunny. Each animal shares its likes and dislikes. The book travels through different habitats, from ocean to icy shores, with characters like Finny the clownfish and Puddles the penguin, making it perfect for bedtime or classroom reading.</p>\n<p>\n<hr>\n<p>\"Meet the Animals,\" written by Jamal Faisal Almutawa, is a heartwarming and engaging children's book that introduces young readers to a delightful world of animal friends. Each page of this beautifully illustrated book brings to life a different animal character, each with their own unique personality and story. From Bubbles, the joyful pup who loves walks and playtime, to Whiskers, the curious kitty who finds joy in sunbeams and cozy laps, this book is a celebration of the little things that bring happiness to our animal friends. Thumper, the playful bunny, Starlight, the graceful horse, and Jumbo, the gentle elephant, each share their likes and dislikes, inviting children into their world. The book continues with more enchanting characters like Leo, the majestic lion; Stretch, the sky-high giraffe; Flutter, the rainbow butterfly; and Hopper, the jolly frog. Each story is a gentle lesson in empathy and understanding, showing what makes each animal happy and what can make them sad. \"Meet the Animals\" is more than just a book; it's a journey through various habitats, from the depths of the ocean with Finny, the cheerful clownfish, to the icy shores with Puddles, the playful penguin. Readers will hop with Joey, the bouncing kangaroo, gallop with Ziggy, the zippy zebra, and learn wisdom from Hootie, the wise owl. Perfect for bedtime stories or classroom reading, this book not only entertains but also educates children about the diverse emotions and behaviors of animals. With Woolly, the soft-hearted sheep, and many more, \"Meet the Animals\" is sure to become a favorite for children who love animals and are eager to learn more about them.</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "stock-market-for-the-young",
+    "title": "Stock Market for the Young",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "business",
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/stockmarketfortheyoungcover.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Stock Market for the Young\" is a captivating book for 9-15 -year-olds, exploring finance and business basics. With vivid illustrations and concise texts, it covers company foundations, growth, profits, startups, early investors, IPOs, and stock trading. It educates and encourages critical thinking in young readers about financial concepts in an engaging way</p>\n<p>\n<hr>\n<p>Stock Market for the Young\" is an illustrative and informative book designed to introduce children aged 9 to 15 to the world of finance and business. Through engaging illustrations and brief texts, it covers a range of topics, including the basics of businesses and companies, the steps to establish a company, how it grows, makes money, and the concepts of startups, early investors, IPOs, and stock market trading. The book aims to educate young minds about financial concepts in a simple, engaging manner and encouraging critical thinking</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "top-10-elements-for-the-young",
+    "title": "Top 10 Elements for the Young",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newcovertop10elements.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>\"Top 10 Elements Book for the Young\" is a chemistry book for 9-16 year olds, covering essential elements like Oxygen and Carbon. It explains their roles in molecule formation, natural processes, and technology, merging complex science with cosmic and atomic insights.</p>\n<p>\n<hr>\n<p>\"Top 10 Elements Book for the Young\" is an illustrative and informative book designed to introduce children aged 9 to 16 to the world of Chemistry. This book explores the fundamental elements that make up the universe, focusing on how essential components like Oxygen, Carbon, Hydrogen, Nitrogen, and others are crucial in the formation of molecules. It delves into their roles in natural processes and technological advancements, including photosynthesis, semiconductors, and fertilizers. The content merges complex scientific concepts with an understanding of the cosmos and the microcosmic world of atoms, offering an engaging perspective for readers interested in science and the natural world.</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "the-ai-powered-productivity-handbook",
+    "title": "The AI-Powered Productivity Handbook",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "ai-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newcoveraipoweredcover.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Transform your productivity with AI. Essential guide to efficiency, with ChatGPT and more.</p>\n<p>\n<hr>\n<p>Unleash the power of productivity and revolutionize your work process with this essential guide. With cutting-edge techniques and tools, you can transform your efficiency and shorten delivery time from days to minutes. Using popular AI platforms, including ChatGPT, this book shows you how to achieve superhuman productivity by leveraging AI technology to automate the heavy lifting. From personal to professional success, this book is your key to unlocking your full potential. Don't wait, start your productivity journey today.</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "talk-time-past-to-future-an-illustrated-communications-history-book",
+    "title": "Talk Time: Past to Future — An Illustrated Communications History Book",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newcovertalktime.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>\"Talk Time: Past to Future\" is an illustrated book for readers aged 9-16, exploring communication from early human history to future technologies. Vivid illustrations accompany each chapter, covering diverse methods from verbal language, smoke signals, and telegraphy, to internet, VR, and brain-computer interfaces. It's an educational journey showing how communication has shaped society.</p>\n<p>\n<hr>\n<p>\"Talk Time: Past to Future - An Illustrated Communications History Book\" is a vibrant and illustrated book designed for young readers aged 9 to 16. This captivating journey takes its readers through the fascinating evolution of communication, from the earliest days of human history to the speculative frontiers of the future. Each chapter is vividly brought to life with colorful, engaging illustrations that depict the transformation of communication methods through the ages. From the rudimentary yet effective verbal language and hand signals of our ancestors to the advanced realms of virtual reality and brain-computer interfaces, the book provides a rich, educational exploration. It covers diverse methods like smoke signals, carrier pigeons, church bells, telegraphy, and even the impact of the internet and social media. The book aims to enlighten young minds about how human interaction and the sharing of information have dramatically evolved, shaping societies and the world at large.</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "how-does-a-lightbulb-work",
+    "title": "How Does a Lightbulb Work",
+    "price_fils": 4000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newcoverhowdoesalightbulb.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Explore the science of light bulbs in 'How Does a Light Bulb Work'. Discover the parts, function of the filament, and how electricity powers bulbs. Learn about CFL, LED types, and energy saving. A fun journey into the magic of light for young readers.</p>\n<p>\n<hr>\n<p>In *\"How Does a Light Bulb Work,\" young minds are taken on an enlightening journey to uncover the mysteries of the humble light bulb. This book starts with a simple yet captivating question: How does a light bulb light up a room? From there, it delves into the anatomy of light bulbs, revealing their different shapes, sizes, and critical functions. Central to the narrative is the filament, described as the heart of the bulb, glowing like the sun to brighten our surroundings. The book skillfully breaks down complex concepts, explaining how electricity travels to the bulb and the magic behind the simple action of flipping a switch. It also introduces children to different types of bulbs—regular, CFL, and LED—each uniquely illustrated to capture their distinct features. Beyond just the mechanics, the book emphasizes the importance of light in our daily lives, allowing us to see in the dark and engage in numerous activities. An important aspect of the book is its focus on energy conservation. It encourages young readers to be mindful of their energy usage and introduces them to energy-saving practices and bulbs. \"How Does a Light Bulb Work\" is not just an educational read; it's a journey that lights up the curiosity and understanding of children, teaching them about a fundamental aspect of their daily lives and inspiring them to appreciate the science and technology that lights up their world.</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "how-can-i-make-money-from-investing",
+    "title": "How Can I Make Money From Investing?",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [
+      "business"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newcoverhowcanimakemoney.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>This book a thorough guide to navigating financial markets, suited for all levels. Covering stocks, bonds, ETFs, etc, it teaches avoiding pitfalls and understanding market analysis and risk management. it's a comprehensive resource for aspiring investors, blending basic concepts with advanced strategies and emphasizing continuous learning and adaptation.</p>\n<p>\n<hr>\n<p>This book is designed to empower readers with the knowledge and skills needed to navigate the complex financial markets, catering to all levels of experience. Dive into the essentials of various financial markets, including stocks, bonds, mutual funds, ETFs, and more. Learn strategies to avoid common pitfalls and scams while gaining insights into market analysis, risk management, and the psychological factors influencing investment decisions. The book is structured in an easy-to-follow question-and-answer format, with each chapter addressing a specific aspect of investing. Almutawa provides clear explanations and practical examples, making complex concepts accessible to readers. The guide also features external resources, such as videos and web pages, to enhance the learning experience. Discover the different ways of making money legally, from traditional employment to entrepreneurship and investing. Explore the pros and cons of each path and learn how to generate passive income streams. The book also delves into the various financial assets available for buying and selling, including stocks, currencies, cryptocurrencies, commodities, ETFs, and derivatives. \"How Can I Make Money from Investing?\" is more than just a guide; it's a gateway to becoming a successful investor or trader. By covering the spectrum from basic concepts to advanced strategies and embracing the educational power of online resources, this book provides readers with the tools needed for informed decision-making in the financial markets. Whether you're a novice looking to make your first investment or an experienced trader seeking to enhance your portfolio, \"How Can I Make Money from Investing?\" is an invaluable resource. Let this book be the first step on your journey to financial mastery, where patience, diligence, and informed action lead the way to achieving your investment goals.</p>",
+    "created": "2024-06-19"
+  },
+  {
+    "handle": "exploring-legendary-creatures-dragons-to-manticore",
+    "title": "Exploring Legendary Creatures - Dragons to Manticore",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newlegendarycover.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>\"Exploring Legendary Creatures: Dragons to Manticore\" by Jamal Faisal Almutawa examines mythical creatures, covering their origins, powers, cultural roles, and portrayals. It details specific abilities and weaknesses of dragons, phoenixes, unicorns, etc., exploring their symbolism in various cultures and impact on myths and popular culture. An insightful guide to the realm of mythical beasts.</p>\n<p>\n<hr>\n<p>\"Exploring Legendary Creatures: Dragons to Manticore\" by Jamal Faisal Almutawa is a comprehensive exploration of various mythical creatures. It delves into their origins, powers, cultural significance, and their portrayal in media like movies. The book discusses creatures like dragons, phoenixes, unicorns, and more, detailing their specific powers and weaknesses. It also reflects on these creatures' symbolic meanings in different cultures and their representation in folklore and popular culture. The book is an insightful resource for understanding the complex world of mythical beasts and their impact on storytelling and myth-making.</p>",
+    "created": "2024-06-18"
+  },
+  {
+    "handle": "art-in-the-age-of-ai",
+    "title": "Art in the Age of AI",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "ai-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/newartintheageofai.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Art in the Age of AI explores the exciting world of AI-generated art and its implications. It covers the basics of how AI models create images from text prompts, the wide range of applications across creative industries, tips for crafting effective prompts, and thoughts on how AI art may revolutionize fields like gaming and movies in the future.</p>\n<p>\n<hr>\n<p>AI Art, also known as text-to-image synthesis or generation, uses artificial intelligence algorithms to create and manipulate visual content. Examples showcase the impressive outcomes achieved, with detailed, lifelike images generated from text prompts alone. Text-to-image models work by training on massive datasets of images and descriptions to learn patterns. The process involves the model breaking down the prompt into key elements and using its learned knowledge to visualize and combine them realistically. The applications of AI Art are vast, spanning creative fields, gaming, marketing, medicine and more. It augments human creativity. Accessing AI image generators is possible online and offline through various platforms like DALL-E, Midjourney, Stable Diffusion, and Canva. Building an effective prompt involves clearly stating the main subject, then adding refinements, details, and output requirements. The book provides examples of using AI for applications like package graphics, mascot designs, house visualizations, logos, and book covers. Future developments may include navigable 3D scenes, movie-like captures, and gaming integration, potentially revolutionizing creative industries.</p>",
+    "created": "2024-06-18"
+  },
+  {
+    "handle": "aroma-and-art-an-illustrated-coffee-journey",
+    "title": "Aroma and Art: An Illustrated Coffee Journey",
+    "price_fils": 12000,
+    "kind": "ebook",
+    "author": "Jamal Faisal Almutawa",
+    "collections": [],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/coffee_newer_better.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>\"Aroma and Art: An Illustrated Coffee Journey\" by Jamal Faisal Almutawa explores coffee's history, from Ethiopian origins to global popularity. Covering cultural impacts and evolution, it offers insights for coffee enthusiasts and curious readers, portraying coffee as a symbol of diverse traditions and a part of human history.</p>\n<p>\n<hr>\n<p>\"Aroma and Art: An Illustrated Coffee Journey,\" authored by Jamal Faisal Almutawa, takes you on a captivating exploration through the world of coffee. It's a journey that transcends the constraints of time and place, delving into the essence of coffee as a beverage that has shaped cultures and histories. This book is far more than a mere story; it is an in-depth exploration of the complex nature of coffee. It traces the roots of coffee from the ancient highlands of Ethiopia to its status as a cherished global phenomenon. Immerse yourself in the rich history and far-reaching impact of coffee, one of the world's most adored drinks. Almutawa's book is like a window into the aromatic universe of coffee, providing an all-encompassing look at its remarkable evolution. Coffee is depicted not just as a beverage, but as a representation of diverse traditions and cultures, from its modest beginnings to its current prominence. For the seasoned coffee lover, the casual drinker, or the curious explorer, \"Aroma and Art: An Illustrated Coffee Journey\" is a trove of insights. It aims to enhance your knowledge and enjoyment of coffee, connecting you to the myriad cultures, histories, and narratives encapsulated in each cup. More than just a reading experience, \"Aroma and Art: An Illustrated Coffee Journey\" is a voyage through the rich and complex world of coffee. Each chapter reveals a new layer of its intricate story, positioning the book as a must-read for anyone interested in understanding the cultural and historical depths of this universally beloved drink.</p>",
+    "created": "2024-06-18"
+  },
+  {
+    "handle": "123-come-count-with-me",
+    "title": "123 Come Count With Me",
+    "price_fils": 1000,
+    "kind": "ebook",
+    "author": null,
+    "collections": [
+      "children-ebooks"
+    ],
+    "includes": [],
+    "images": [
+      {
+        "src": "shopify-export/media/products/new_count_with_me.png",
+        "width": 1500,
+        "height": 1383,
+        "alt": ""
+      }
+    ],
+    "video": null,
+    "description_html": "<p>Embark on a delightful journey of numbers and words with our enchanting counting book, perfect for little learners aged 0 to 4 years. '123 Come Count With Me' offers a unique blend of education and fun, designed to capture the imagination of your child while teaching them the basics of counting from 0 to 9. Each page of this beautifully illustrated book is dedicated to a different number, making learning straightforward and enjoyable. Your child will be greeted by vibrant, eye-catching illustrations of adorable animals, corresponding to each number. Three playful ducks, five cuddly puppies, and more – these charming creatures will become your child's companions in exploring the world of numbers. But that's not all! To enrich the learning experience, every number is accompanied by a delightful haiku. These short, engaging poems add a rhythmical and lyrical quality to the book, making it a joy to read aloud. The haikus are not only fun but also serve as a creative tool to strengthen number recognition and memory. Designed with young readers in mind, 'Counting with Cute Critters' uses bold, bright colors and simple, clear layouts to keep your child engaged. This book is not just a learning tool; it's a colorful adventure that stimulates imagination and curiosity. Whether you're a parent, grandparent, or educator, this book is an ideal addition to your child's learning journey. It's a wonderful way to introduce the beauty of numbers and poetry, fostering an early love for reading and learning. 'Counting with Cute Critters' is more than just a counting book; it's a gateway to a world of learning and fun for your little one. Add it to your collection today and watch your child's love for learning grow!</p>",
+    "created": "2024-06-16"
+  }
+]

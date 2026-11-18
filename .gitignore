@@ -3,3 +3,8 @@ __pycache__/
 # never commit customer/order exports or secrets
 private/
 *.env
+node_modules/
+public/
+.wrangler/
+.dev.vars
+.test/

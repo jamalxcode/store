@@ -28,6 +28,7 @@ Rules for the rebuild:
   (`/policies/<name>`) so links already registered or printed elsewhere still work.
 - Keep the compliance blog posts at the same URLs (`/blogs/news/<handle>`).
 - The privacy policy currently says it collects a **billing address**. Update that sentence when checkout drops it (section 3).
+- Done in the rebuild: every page footer and every receipt email shows the trade name, license and address in English and Arabic.
 - Before cutover, ask the owner for the full list of MOCI conditions (e.g. whether the license must be on the home page
   or the checkout page, and whether a MOCI/"Maroof"-style badge or link is needed) and add it here.
 
@@ -74,11 +75,10 @@ After payment:
 
 ## 5. House conventions (from the other sala.company sites)
 
-- Static site on GitHub Pages with a custom domain, `.nojekyll` and a `CNAME` file, deployed by `.github/workflows/pages.yml`.
+- **Decided 2026-11-18: Cloudflare Workers, not GitHub Pages.** One Worker serves the static pages and the API on the
+  same origin, with D1 for orders and private R2 for ebooks. GitHub Pages can't hold secrets or run the payment flow.
 - Shared GoatCounter snippet (endpoint `https://salacompany.goatcounter.com/count`), copied verbatim from the other sala.company repos.
 - WCAG AA contrast in light and dark mode, and no sideways scrolling on phones.
-- The payment, verification and download parts need a small server (GitHub Pages can't hold secrets). Candidate: a
-  Cloudflare Worker with KV/D1 for orders and R2 for the ebook files. To be decided.
 
 ## 6. Cutover
 

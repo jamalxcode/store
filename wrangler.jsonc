@@ -1,0 +1,32 @@
+// Cloudflare Worker for sala.company: static storefront (public/, built by tools/build.mjs) + API.
+// One-time setup is in docs/DEPLOY.md.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sala-store",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/dl/*"]
+  },
+  "d1_databases": [
+    // database_id comes from `npx wrangler d1 create store` (docs/DEPLOY.md)
+    { "binding": "DB", "database_name": "store", "database_id": "00000000-0000-0000-0000-000000000000", "migrations_dir": "worker/migrations" }
+  ],
+  "r2_buckets": [
+    // Private bucket for the ebook files: no public access, no custom domain.
+    { "binding": "FILES", "bucket_name": "sala-store-files" }
+  ],
+  // Until cutover the store runs at sala-store.<account>.workers.dev. At cutover add
+  //   "routes": [{ "pattern": "sala.company", "custom_domain": true }]  and  "SITE_URL": "https://sala.company"
+  "vars": {
+    "EMAIL_FROM": "sala.company <orders@sala.company>",
+    "OWNER_EMAIL": "basketservicesllc@gmail.com",
+    "TAP_SOURCE": "src_all"
+  },
+  // Secrets (npx wrangler secret put NAME): TAP_SECRET_KEY, RESEND_API_KEY, SIGNING_SECRET
+  "observability": { "enabled": true }
+}

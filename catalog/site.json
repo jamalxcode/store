@@ -1,0 +1,38 @@
+{
+  "name": "sala company",
+  "wordmark": "sala.company",
+  "url": "https://sala.company",
+  "tagline": "eBooks, fonts and code, written with AI in Kuwait.",
+  "description": "Discover sala.company – your source for AI-powered eBooks, consultancy, and management advice. Unlock potential with our comprehensive eBook library and personalized consulting services.",
+  "currency": "KWD",
+  "email": "basketservicesllc@gmail.com",
+  "business": {
+    "trade_name_en": "SALA CO FOR COMPUTER CONSULTING AND FACILITIES MANAGEMENT ACTIVITIES",
+    "trade_name_ar": "شركة سلة لأنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية",
+    "license": "502625",
+    "license_date": "23/05/2024",
+    "address_en": "PO Box 306, code 48154, Al-Salam, Kuwait",
+    "address_ar": "صندوق بريد 306، الرمز البريدي 48154، السالم، الكويت",
+    "portal": "https://go.sala.company"
+  },
+  "announcements": [
+    { "text": "We are open, all welcome" },
+    { "text": "Get our free Kuwait themed font", "href": "/products/fun-kuwait" },
+    { "text": "Teach your children about business in a simple, fun way", "href": "/products/stock-market-for-the-young" },
+    { "text": "Learn more about coffee", "href": "/products/aroma-and-art-an-illustrated-coffee-journey" },
+    { "text": "Become an AI powered artist", "href": "/products/art-in-the-age-of-ai" }
+  ],
+  "nav": [
+    { "text": "Shop", "href": "/collections/all" },
+    { "text": "Blog", "href": "/blogs/news" },
+    { "text": "My downloads", "href": "/downloads" },
+    { "text": "AI", "href": "https://ai.sala.company", "external": true }
+  ],
+  "games": [
+    { "text": "Galactic Defender", "href": "https://galacticdefender.sala.company/" },
+    { "text": "Tetris", "href": "https://tetris.sala.company/" }
+  ],
+  "policies": ["privacy-policy", "refund-policy", "shipping-policy", "terms-of-service", "contact-information"],
+  "download_days": 7,
+  "max_downloads": 20
+}

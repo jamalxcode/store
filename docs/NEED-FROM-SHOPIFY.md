@@ -1,5 +1,13 @@
 # What we still need from the owner / Shopify admin
 
+## To go live (new accounts)
+
+- **Cloudflare**: account plus an API token (Workers, D1, R2 edit). See `docs/DEPLOY.md`.
+- **Resend**: account, verify the `sala.company` domain, plus an API key. Sends the email codes and receipts.
+- **Tap**: test and live secret keys from the Tap dashboard.
+
+## From Shopify
+
 The public storefront gave us the catalog, images, trailers, blog and policies (see `shopify-export/`). These items are
 only available from the Shopify admin or from the owner. **Never commit secrets or customer data to this repo.** Send
 keys through the cloud environment's credential prompt and keep customer exports out of git.

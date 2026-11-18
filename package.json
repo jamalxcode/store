@@ -1,0 +1,19 @@
+{
+  "name": "sala-store",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "node tools/build.mjs && wrangler dev",
+    "test": "node tools/build.mjs && node tools/test.mjs",
+    "deploy": "node tools/build.mjs && wrangler deploy",
+    "ui-check": "node tools/build.mjs && node tools/ui-check.mjs",
+    "media": "node tools/media.mjs",
+    "upload-ebooks": "node tools/upload-ebooks.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.1",
+    "playwright": "^1.63.0",
+    "wrangler": "^4.164.0"
+  }
+}
