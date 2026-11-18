@@ -19,7 +19,7 @@
   ],
   "r2_buckets": [
     // Private bucket for the ebook files: no public access, no custom domain.
-    { "binding": "FILES", "bucket_name": "sala-store-files" }
+    { "binding": "FILES", "bucket_name": "sala-ebooks" }
   ],
   // Until cutover the store runs at sala-store.<account>.workers.dev. At cutover add
   //   "routes": [{ "pattern": "sala.company", "custom_domain": true }]  and  "SITE_URL": "https://sala.company"

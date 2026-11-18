@@ -28,7 +28,7 @@ for (const h of fs.readdirSync(dir)) {
     if (f.startsWith(".")) continue;
     const key = `ebooks/${h}/${f}`;
     console.log(`upload ${key}`);
-    execFileSync(path.join(root, "node_modules/.bin/wrangler"), ["r2", "object", "put", `sala-store-files/${key}`, where, "--file", path.join(sub, f)], { cwd: root, stdio: "inherit" });
+    execFileSync(path.join(root, "node_modules/.bin/wrangler"), ["r2", "object", "put", `sala-ebooks/${key}`, where, "--file", path.join(sub, f)], { cwd: root, stdio: "inherit" });
     done.add(h);
   }
 }

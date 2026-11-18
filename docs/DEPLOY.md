@@ -4,7 +4,7 @@ One Cloudflare Worker serves everything. It has three parts:
 
 - **Static assets** (`public/`, built by `tools/build.mjs`): every page, image and trailer.
 - **D1 database `store`**: orders, email codes, rate limits, download counts and the audit log.
-- **Private R2 bucket `sala-store-files`**: the ebook files under `ebooks/<product-handle>/<file name>`. It has no public
+- **Private R2 bucket `sala-ebooks`**: the ebook files under `ebooks/<product-handle>/<file name>`. It has no public
   access. Files only leave through signed, expiring and counted `/dl/...` links for paid orders.
 
 Outside services:
@@ -18,7 +18,7 @@ Outside services:
 1. Create the Cloudflare resources (needs `npx wrangler login` or `CLOUDFLARE_API_TOKEN`):
    ```bash
    npx wrangler d1 create store            # copy the database_id into wrangler.jsonc
-   npx wrangler r2 bucket create sala-store-files
+   npx wrangler r2 bucket create sala-ebooks --location eeur   # Eastern Europe, nearest to Kuwait
    npx wrangler d1 migrations apply store --remote
    ```
 2. Set the secrets:
@@ -29,7 +29,7 @@ Outside services:
    ```
    Changing `SIGNING_SECRET` later invalidates every emailed link. Buyers can get new ones at `/downloads`.
 3. Upload the ebooks: `node tools/upload-ebooks.mjs ./ebooks` (one folder per product handle). You can also drag them
-   into the bucket in the Cloudflare dashboard under R2 → `sala-store-files`, using folders named `ebooks/<handle>/`.
+   into the bucket in the Cloudflare dashboard under R2 → `sala-ebooks`, using folders named `ebooks/<handle>/`.
    A product with no file shows "Coming soon" and can't be bought.
 4. Deploy: `npm run deploy`. The store is now live at `https://sala-store.<account>.workers.dev` for testing.
    From then on, GitHub deploys every push to `main` after tests pass. Add the repository secret `CLOUDFLARE_API_TOKEN`

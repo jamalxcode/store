@@ -49,7 +49,7 @@ run(["d1", "migrations", "apply", "store", "--local", "--persist-to", STATE]);
 const put = (key, content) => {
   const f = path.join(root, ".test/files", key.replace(/\//g, "_"));
   fs.writeFileSync(f, content);
-  run(["r2", "object", "put", `sala-store-files/${key}`, "--local", "--persist-to", STATE, "--file", f]);
+  run(["r2", "object", "put", `sala-ebooks/${key}`, "--local", "--persist-to", STATE, "--file", f]);
 };
 put("ebooks/the-nadia-upgrade/The Nadia Upgrade.pdf", "%PDF-nadia");
 put("ebooks/fun-kuwait/FunKuwait.ttf", "font-bytes");
