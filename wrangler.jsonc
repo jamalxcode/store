@@ -14,7 +14,7 @@
   },
   "d1_databases": [
     // database_id comes from `npx wrangler d1 create store` (docs/DEPLOY.md)
-    { "binding": "DB", "database_name": "store", "database_id": "00000000-0000-0000-0000-000000000000", "migrations_dir": "worker/migrations" }
+    { "binding": "DB", "database_name": "store", "database_id": "d833913f-4af9-4ee7-b765-8e8d228bfa06", "migrations_dir": "worker/migrations" }
   ],
   "r2_buckets": [
     // Private bucket for the ebook files: no public access, no custom domain.
