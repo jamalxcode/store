@@ -1,0 +1,82 @@
+[
+  {
+    "id": 454162841833,
+    "title": "AI eBooks",
+    "handle": "ai-ebooks",
+    "description": "<p>Empower yourself with an all round knowledge of AI.</p>",
+    "published_at": "2025-07-03T18:48:03+03:00",
+    "updated_at": "2026-06-23T14:27:04+03:00",
+    "image": null,
+    "products_count": 4,
+    "description_text": "Empower yourself with an all round knowledge of AI.",
+    "product_handles": [
+      "the-ai-powered-productivity-handbook",
+      "ai-explained-a-teens-guide-to-the-artificial-intelligence-future",
+      "super-coder",
+      "art-in-the-age-of-ai"
+    ]
+  },
+  {
+    "id": 454162940137,
+    "title": "Business",
+    "handle": "business",
+    "description": "<p>Learn Business, be in control of your finances and your future.</p>",
+    "published_at": "2025-07-03T18:49:04+03:00",
+    "updated_at": "2026-06-23T14:27:04+03:00",
+    "image": null,
+    "products_count": 2,
+    "description_text": "Learn Business, be in control of your finances and your future.",
+    "product_handles": [
+      "stock-market-for-the-young",
+      "how-can-i-make-money-from-investing"
+    ]
+  },
+  {
+    "id": 454163169513,
+    "title": "Children eBooks",
+    "handle": "children-ebooks",
+    "description": "<p>Interesting fun books for your children to enjoy and learn.</p>",
+    "published_at": "2025-07-03T18:53:02+03:00",
+    "updated_at": "2026-05-26T19:35:14+03:00",
+    "image": null,
+    "products_count": 8,
+    "description_text": "Interesting fun books for your children to enjoy and learn.",
+    "product_handles": [
+      "123-come-count-with-me",
+      "stock-market-for-the-young",
+      "meet-the-animals",
+      "reddington-the-fox",
+      "top-10-elements-for-the-young",
+      "how-does-a-lightbulb-work",
+      "from-footsteps-to-flight",
+      "exploring-legendary-creatures-dragons-to-manticore"
+    ]
+  },
+  {
+    "id": 444159951081,
+    "title": "eBook Video Trailers - Click to watch the ebook video trailer",
+    "handle": "featured",
+    "description": "<p>Exciting science fiction stories as ebooks. </p>\n<p>Introducing ZK, the boy who defied the machine and Nadia, the girl who wanted to upgrade her abilities and be better.</p>",
+    "published_at": "2024-11-28T13:33:58+03:00",
+    "updated_at": "2026-09-21T14:12:58+03:00",
+    "image": null,
+    "products_count": 2,
+    "description_text": "Exciting science fiction stories as ebooks. \n\nIntroducing ZK, the boy who defied the machine and Nadia, the girl who wanted to upgrade her abilities and be better.",
+    "product_handles": [
+      "the-boy-who-defied-the-machine",
+      "the-nadia-upgrade"
+    ]
+  },
+  {
+    "id": 435130597609,
+    "title": "Home page",
+    "handle": "frontpage",
+    "description": null,
+    "published_at": "2024-06-16T05:22:00+03:00",
+    "updated_at": "2026-05-26T19:35:14+03:00",
+    "image": null,
+    "products_count": 0,
+    "description_text": "",
+    "product_handles": []
+  }
+]
