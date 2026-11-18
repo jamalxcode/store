@@ -57,7 +57,14 @@ Order statuses: `pending` (charge created, waiting for Tap) → `paid` or `faile
 
 ## Kuwait Ministry of Commerce
 
-- Every page footer and every receipt email shows, in English and Arabic: the trade name (SALA CO FOR COMPUTER CONSULTING AND FACILITIES MANAGEMENT ACTIVITIES), commercial license **502625** (23/05/2024) and the address (PO Box 306, code 48154, Al-Salam, Kuwait). (`catalog/site.json` → `business`)
+The full control-by-control audit is in [compliance/AUDIT.md](compliance/AUDIT.md), against the owner's checklist [compliance/KUWAIT-WEBSITE-CHECKLIST.md](compliance/KUWAIT-WEBSITE-CHECKLIST.md).
+
+- **Identity block** (Arabic first, then English), built by `src/identity.js` from `catalog/site.json` → `business`: trade name (+ legal form), commercial register no., commercial license no. and date, address, phone and email. It's shown in every page footer, in every email, and (with capital and paid-up) on every invoice. Fields the owner hasn't confirmed (`null`) are hidden, never shown as placeholders. Pending: CR number, legal form, phone, capital.
+- **Arabic product information**: every product has `title_ar`, `summary_ar` and `kind_ar`. Product pages show them with the price in د.ك, delivery timing, payment methods and the returns link.
+- **Invoice**: every paid order has an Arabic-first bilingual e-invoice at `/invoice?id=…&t=…`. It's linked from the receipt email, the order page and My downloads, is printable, and states "electronic invoice, no signature required".
+- **Before payment**, checkout shows: final total, no fees or shipping, instant delivery, returns link, payment methods, and bilingual agreement to the terms.
+- **Complaints**: `/complaints` form → reference `C-XXXXXXXX` emailed to the customer, complaint emailed to the owner (reply-to the customer), stored in D1 table `complaints` (kept ≥ 6 months, never auto-deleted). Promise: reply within 2 business days, resolve within 7 (`site.json` → `complaints`). The page shows escalation to MOCI (online service, phone 135). Limits: 5 per IP and 5 per email per hour.
+
 - The five policies (privacy, refund, shipping/digital delivery, terms, contact information) are carried over **word for word** from Shopify, bilingual, at `/policies/<name>`. They change only when the owner asks.
 - Orders, including email, name, items, amount, Tap charge id and timestamps, are kept for **at least 5 years**, as the privacy policy states, citing the Digital Commerce Law. Every state change is logged in `events`.
 - Refunds follow the refund policy: no returns once a file is accessed, except corrupt or undelivered files, misdescription, or a technical error reported within 7 days. Refunds are issued by hand in the Tap dashboard.

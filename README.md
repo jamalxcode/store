@@ -23,7 +23,7 @@ The full rules are in [docs/BUSINESS-RULES.md](docs/BUSINESS-RULES.md).
 
 ```bash
 npm ci
-npm test            # build + 20 end-to-end checks: real Worker in wrangler dev, fake Tap and Resend
+npm test            # build + 23 end-to-end checks: real Worker in wrangler dev, fake Tap and Resend
 npm run ui-check    # every page in Chromium: phone/desktop, light/dark, sideways scroll, axe (WCAG AA)
 npm run dev         # local store at http://localhost:8787 (put test keys in .dev.vars)
 npm run media       # web-sized images and trailers after adding a product image or video (needs ffmpeg)
@@ -58,6 +58,7 @@ Deploys happen automatically on GitHub after tests pass on `main`, or by hand vi
 - [docs/BUSINESS-RULES.md](docs/BUSINESS-RULES.md): every rule the store enforces.
 - [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md): what the owner asked for (Ministry of Commerce, Tap, email-only checkout).
 - [docs/DEPLOY.md](docs/DEPLOY.md): Cloudflare setup, test purchases, cutover, day-to-day.
+- [docs/compliance/AUDIT.md](docs/compliance/AUDIT.md): Kuwait MOCI website checklist, control by control (checklist in the same folder).
 - [docs/LESSONS.md](docs/LESSONS.md): gotchas found along the way.
 - [docs/SHOPIFY-AUDIT.md](docs/SHOPIFY-AUDIT.md): how the old Shopify store was built.
 - [CHANGELOG.md](CHANGELOG.md)

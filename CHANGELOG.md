@@ -1,6 +1,21 @@
 # Changelog
 
-## 2026-11-18
+## 2026-11-18 (later)
+
+### Added: Kuwait MOCI website checklist
+- The owner's checklist is saved in `docs/compliance/`, and the store has been audited control by control (`docs/compliance/AUDIT.md`).
+- Arabic-first company identity block in every footer and email (`src/identity.js`), with separate lines for the license and the CR number.
+- Arabic information on every product page (title, description, price in د.ك, delivery, payment, returns).
+- Arabic/English e-invoice for every paid order (`/invoice`), linked from the receipt email, order page and My downloads.
+- Contact and complaints page with a reference number, owner alert, D1 storage (migration `0002_complaints`) and escalation to MOCI (135).
+- Checkout shows the final total, delivery, returns and invoice note before payment. Terms agreement in Arabic as well.
+- Receipt and code emails are now bilingual, Arabic first.
+- 3 new end-to-end tests (23 total); the browser check now covers 17 pages.
+
+### Still missing for full compliance
+- CR number, legal form, capital and paid-up amount, and a business phone (from the owner).
+- Privacy policy update (draft waiting for approval).
+
 
 ### Live (test address)
 - The store runs at **https://sala-store.jamal-akuna-matata.workers.dev** on Cloudflare. GitHub deploys it after tests pass on `main`. sala.company is still on Shopify.

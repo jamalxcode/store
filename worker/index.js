@@ -6,6 +6,7 @@
 //   GET  /api/order?id=&t=                           -> order status (+ download links once paid)
 //   POST /api/downloads      {token}                 -> every paid order for that email, with fresh links
 //   POST /api/tap/webhook    (Tap charge object)     -> re-fetches the charge from Tap, fulfils if CAPTURED
+//   POST /api/complaint     {name, email, order_id?, message} -> {reference}  (stored, emailed to owner + customer)
 //   GET  /api/stock                                  -> handles whose files are uploaded
 //   GET  /dl/<order>/<file>?x=&s=                    -> streams a private file from R2 (signed, expiring, counted)
 //
@@ -15,7 +16,7 @@ import products from "../catalog/products.json";
 import site from "../catalog/site.json";
 import { hmac, sha256, same, randomCode, orderId, b64urlText, fromB64urlText } from "./crypto.js";
 import { createCharge, getCharge, toFils, FAILED } from "./tap.js";
-import { send, codeEmail, receiptEmail, ownerEmail } from "./email.js";
+import { send, codeEmail, receiptEmail, ownerEmail, complaintEmail, complaintOwnerEmail } from "./email.js";
 
 const CATALOG = Object.fromEntries(products.map((p) => [p.handle, p]));
 const EMAIL_RE = /^[^\s@<>()",;:]{1,64}@[^\s@<>()",;:]+\.[^\s@<>()",;:]{2,}$/;
@@ -63,6 +64,7 @@ async function route(request, env, ctx, url) {
   if (p === "/api/verify/check") return verifyCheck(env, body);
   if (p === "/api/checkout") return checkout(env, ctx, body, ip, url);
   if (p === "/api/downloads") return downloads(env, body, url);
+  if (p === "/api/complaint") return complaint(env, ctx, body, ip);
   throw new HttpError(404, "Not found");
 }
 
@@ -308,6 +310,7 @@ async function order(env, ctx, url) {
   return json({
     id: row.id, status: row.status, name: row.name, email: row.email,
     items: JSON.parse(row.items), total_fils: row.total_fils, link_days: site.download_days,
+    created_at: row.created_at, paid_at: row.paid_at, payment: row.tap_charge_id ? "tap" : row.total_fils === 0 ? "free" : null, tap_charge_id: row.tap_charge_id,
     files: row.status === "paid" ? await signedLinks(env, row, base) : [],
   });
 }
@@ -317,8 +320,30 @@ async function downloads(env, body, url) {
   const base = siteUrl(env, url);
   const { results } = await env.DB.prepare("SELECT * FROM orders WHERE email = ? AND status = 'paid' ORDER BY paid_at DESC LIMIT 100").bind(email).all();
   return json({
-    orders: await Promise.all(results.map(async (o) => ({ id: o.id, paid_at: o.paid_at, items: JSON.parse(o.items), files: await signedLinks(env, o, base) }))),
+    orders: await Promise.all(results.map(async (o) => ({ id: o.id, view: await viewToken(env, o.id), paid_at: o.paid_at, items: JSON.parse(o.items), files: await signedLinks(env, o, base) }))),
   });
+}
+
+// ---------- complaints ----------
+async function complaint(env, ctx, body, ip) {
+  const email = cleanEmail(body.email);
+  const name = String(body.name || "").replace(/\s+/g, " ").trim().slice(0, 80);
+  const message = String(body.message || "").trim();
+  const orderRef = String(body.order_id || "").trim().toUpperCase().slice(0, 20) || null;
+  if (!name) throw new HttpError(400, "Please enter your name.");
+  if (message.length < 5 || message.length > 4000) throw new HttpError(400, "Please describe the problem (up to 4000 characters).");
+  await limit(env, `complaint:ip:${ip}`, 5, 3600);
+  await limit(env, `complaint:email:${email}`, 5, 3600);
+  const id = orderId().replace(/^SC-/, "C-");
+  await env.DB.prepare("INSERT INTO complaints (id, created_at, name, email, order_id, message, ip) VALUES (?, ?, ?, ?, ?, ?, ?)")
+    .bind(id, iso(), name, email, orderRef, message, ip).run();
+  const c = { id, name, email, order_id: orderRef, message };
+  // The reference is stored either way; email failures are logged, not shown.
+  ctx.waitUntil(Promise.all([
+    send(env, { to: email, ...complaintEmail(c) }),
+    env.OWNER_EMAIL ? send(env, { to: env.OWNER_EMAIL, replyTo: email, ...complaintOwnerEmail(c) }) : null,
+  ]).catch((e) => console.error(e.message)));
+  return json({ reference: id });
 }
 
 // ---------- private file delivery ----------

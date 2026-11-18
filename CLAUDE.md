@@ -6,11 +6,12 @@ Read before working:
 - `docs/REQUIREMENTS.md`: must-haves. Kuwait Ministry of Commerce details (trade name, license 502625, address) on every
   page and in receipts; Tap payments, confirmed server-side only; checkout asks for a verified email and a name, never a postal address.
 - `docs/DEPLOY.md`: setup, cutover and operations.
+- `docs/compliance/AUDIT.md`: Kuwait MOCI checklist status. Company identity comes only from `catalog/site.json` → `business` via `src/identity.js`; never hard-code it.
 - `docs/BUSINESS-RULES.md`: every enforced rule. Update it in the same change as the code.
 - `docs/LESSONS.md`: gotchas (deploy from the session fails at asset upload; use the GitHub Deploy workflow).
 - `docs/TODO.md`: open items and who owns them. Add a `CHANGELOG.md` entry for user-visible changes.
 
-Commands (Node 22): `npm ci`, `npm test` (build + 20 end-to-end checks in wrangler dev against fake Tap/Resend),
+Commands (Node 22): `npm ci`, `npm test` (build + 23 end-to-end checks in wrangler dev against fake Tap/Resend),
 `npm run ui-check` (Chromium + axe, phone and desktop, light and dark), `npm run dev`, `npm run deploy`.
 
 Rules:

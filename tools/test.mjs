@@ -262,6 +262,43 @@ await test("webhook with unknown or missing charge id is ignored", async () => {
   assert.equal((await post("/api/tap/webhook", { hello: 1 })).body.ignored, "no charge id");
 });
 
+await test("every page shows the Arabic trade name and license in the footer; product pages have Arabic info", async () => {
+  for (const p of ["/", "/products/the-nadia-upgrade", "/checkout", "/complaints", "/invoice"]) {
+    const h = await (await fetch(BASE + p)).text();
+    assert.match(h, /شركة سلة لأنشطة الخبرة الاستشارية الحاسوبية/, p);
+    assert.match(h, /رقم الترخيص التجاري: 502625/, p);
+  }
+  const prod = await (await fetch(BASE + "/products/the-nadia-upgrade")).text();
+  assert.match(prod, /ترقية نادية/);
+  assert.match(prod, /4\.000 د\.ك/);
+  assert.match(await (await fetch(BASE + "/complaints")).text(), /135/);
+});
+await test("order API carries invoice fields; receipt email is bilingual with company identity", async () => {
+  const o = await get(`/api/order?id=${paid.order_id}&t=${paid.view}`);
+  assert.equal(o.body.payment, "tap");
+  assert.ok(o.body.paid_at);
+  assert.equal(o.body.tap_charge_id, paid.charge);
+  const receipt = emails.find((e) => e.to[0] === "buyer@example.com" && /invoice/i.test(e.subject));
+  assert.match(receipt.html, /فاتورة إلكترونية/);
+  assert.match(receipt.html, /شركة سلة/);
+  assert.match(receipt.text, /\/invoice\?id=/);
+  const d = await post("/api/downloads", { token: await verify("buyer@example.com") });
+  assert.ok(d.body.orders[0].view);
+});
+await test("complaints get a reference, are stored, and email customer and owner", async () => {
+  const before = emails.length;
+  const r = await post("/api/complaint", { name: "Unhappy", email: "c@example.com", order_id: paid.order_id, message: "The file would not open." });
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.match(r.body.reference, /^C-[A-Z0-9]{8}$/);
+  await new Promise((res) => setTimeout(res, 300));
+  const sent = emails.slice(before);
+  assert.ok(sent.some((e) => e.to[0] === "c@example.com" && e.subject.includes(r.body.reference)));
+  assert.ok(sent.some((e) => e.to[0] === "owner@example.com" && e.reply_to === "c@example.com"));
+  assert.equal((await post("/api/complaint", { name: "", email: "c@example.com", message: "x" })).status, 400);
+  for (let i = 0; i < 4; i++) await post("/api/complaint", { name: "A", email: `c${i}@example.com`, message: "hello there" });
+  assert.equal((await post("/api/complaint", { name: "A", email: "c9@example.com", message: "hello there" })).status, 429);
+});
+
 console.log(`\n${passed} tests passed`);
 stop();
 process.exit(0);

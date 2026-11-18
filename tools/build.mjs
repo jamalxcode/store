@@ -5,6 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { imgName, WIDTHS } from "./media.mjs";
+import { identity, moneyAr } from "../src/identity.js";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const OUT = path.join(root, "public");
@@ -63,6 +64,7 @@ const ICON = {
   lock: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>`,
 };
 
+const ID = identity(site.business, site.email);
 // ---------- layout ----------
 function layout({ title, description, url, body, current = "", og = null, jsonld = null, noindex = false }) {
   const full = title ? `${title} – ${site.name}` : `${site.wordmark} – ${site.name}`;
@@ -110,13 +112,13 @@ ${body}
 </main>
 <footer class="footer"><div class="wrap">
 <div class="cols">
-<div><a class="logo" href="/">${LOGO}<span>${esc(site.wordmark)}</span></a><p class="muted" style="margin-top:10px">${esc(site.tagline)}</p><p>Questions? <a href="mailto:${site.email}">${site.email}</a></p></div>
+<div><a class="logo" href="/">${LOGO}<span>${esc(site.wordmark)}</span></a><p class="muted" style="margin-top:10px">${esc(site.tagline)}</p><p>Questions or complaints? <a href="/complaints">Contact us</a> · <a href="mailto:${site.email}">${site.email}</a></p></div>
 <div><h2>Shop</h2><ul><li><a href="/collections/all">All products</a></li>${collections.map((c) => `<li><a href="/collections/${c.handle}">${esc(c.title)}</a></li>`).join("")}<li><a href="/downloads">My downloads</a></li><li><a href="/blogs/news">Blog</a></li></ul></div>
-<div><h2>Policies</h2><ul>${policies.map((p) => `<li><a href="/policies/${p.handle}">${esc(p.title)}</a></li>`).join("")}<li><a href="${b.portal}" rel="noopener">go.sala.company</a></li></ul></div>
+<div><h2>Help and policies</h2><ul><li><a href="/policies/refund-policy">Returns and refunds · الإرجاع والاسترداد</a></li><li><a href="/complaints">Contact and complaints · الشكاوى</a></li><li><a href="/policies/privacy-policy">Privacy · الخصوصية</a></li><li><a href="/policies/terms-of-service">Terms · الشروط</a></li><li><a href="/policies/shipping-policy">Digital delivery · التسليم الرقمي</a></li><li><a href="/policies/contact-information">Company information · بيانات الشركة</a></li><li><a href="${b.portal}" rel="noopener">go.sala.company</a></li></ul></div>
 </div>
 <div class="legal">
-<p lang="en">${esc(b.trade_name_en)}<br>Commercial license ${b.license} (${b.license_date})<br>${esc(b.address_en)}</p>
-<p lang="ar" dir="rtl">${esc(b.trade_name_ar)}<br>الرخصة التجارية: ${b.license} (بتاريخ: ${b.license_date})<br>${esc(b.address_ar)}</p>
+<p lang="ar" dir="rtl" data-identity="ar">${ID.ar.map(esc).join("<br>")}</p>
+<p lang="en" data-identity="en">${ID.en.map(esc).join("<br>")}</p>
 </div>
 <div class="bottom"><span>© ${new Date().getFullYear()} ${esc(site.name)}. Prices in Kuwaiti dinar (KWD). Secure payment by Tap.</span><span>${site.games.map((g) => `<a href="${g.href}" rel="noopener">${esc(g.text)}</a>`).join(" · ")}</span></div>
 </div></footer>
@@ -212,8 +214,9 @@ ${p.video ? `<div class="trailer"><video controls preload="none" playsinline pos
 ${free ? "" : `<button class="btn secondary" type="button" data-add="${p.handle}">Add to cart</button>`}
 </div>
 <p class="msg" data-stock-msg hidden></p>
-<ul class="facts"><li>Instant download after ${free ? "confirming your email" : "payment"}</li><li>No address needed: just your email</li>${free ? "" : "<li>Pay with KNET, Visa, Mastercard or Apple Pay via Tap</li>"}<li>Download links are emailed and stay available in <a href="/downloads">My downloads</a></li></ul>
+<ul class="facts"><li>Final price, no extra fees</li><li>Instant download after ${free ? "confirming your email" : "payment"}</li><li>No address needed: just your email</li>${free ? "" : "<li>Pay with KNET, Visa, Mastercard or Apple Pay via Tap</li>"}<li>Download links are emailed and stay available in <a href="/downloads">My downloads</a></li></ul>
 ${p.includes.length ? `<div class="includes"><strong>This bundle includes</strong><ul>${p.includes.map((h) => bySlug[h]).filter(Boolean).map((x) => `<li><a href="/products/${x.handle}">${esc(x.title)}</a> (${money(x.price_fils)} on its own)</li>`).join("")}</ul></div>` : ""}
+<section class="ar-info" lang="ar" dir="rtl"><h2>${esc(p.title_ar)}</h2><p class="muted">${esc(p.kind_ar)}${p.author ? " · تأليف جمال فيصل المطوع" : ""}</p><p>${esc(p.summary_ar)}</p><ul><li>السعر: <strong>${moneyAr(p.price_fils)}</strong> (السعر نهائي، لا رسوم إضافية)</li><li>التسليم: تحميل فوري بعد ${free ? "تأكيد البريد الإلكتروني" : "الدفع"}، ويُرسل رابط التحميل إلى بريدك</li>${free ? "" : "<li>الدفع: كي نت، فيزا، ماستركارد، Apple Pay عبر Tap</li>"}<li>الإرجاع: حسب <a href="/policies/refund-policy">سياسة الإرجاع والاسترداد</a></li></ul></section>
 <div class="desc prose">${p.description_html}</div>
 </div>
 </div>
@@ -260,25 +263,53 @@ appPage("/checkout", "Checkout", `<div class="wrap"><div class="checkout">
 <section class="step panel" data-step="pay" hidden><h2><span class="n">2</span> Pay and download</h2>
 <form data-form="pay" novalidate><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="80" required>
 <p class="hint">Printed on your receipt. Our payment provider requires a name.</p>
-<label class="check"><input type="checkbox" name="terms" required> <span>I agree to the <a href="/policies/terms-of-service" target="_blank">terms of service</a> and the <a href="/policies/refund-policy" target="_blank">refund policy</a>. Digital products can't be returned once downloaded.</span></label>
+<label class="check"><input type="checkbox" name="terms" required> <span>I agree to the <a href="/policies/terms-of-service" target="_blank">terms of service</a> and the <a href="/policies/refund-policy" target="_blank">refund policy</a>. Digital products can't be returned once downloaded, except as the refund policy allows.<br><span lang="ar" dir="rtl">أوافق على <a href="/policies/terms-of-service" target="_blank">شروط الخدمة</a> و<a href="/policies/refund-policy" target="_blank">سياسة الإرجاع والاسترداد</a>.</span></span></label>
 <button class="btn wide" type="submit" style="margin-top:16px" data-pay-label>Pay</button>
 <p class="secure">${ICON.lock} Payment is handled on Tap's secure page (KNET, Visa, Mastercard, Apple Pay). We never see your card.</p>
 <p class="msg" role="status" data-msg></p></form>
 </section>
 </div>
-<aside><div class="panel"><h2>Order summary</h2><div data-summary><p class="muted">Loading…</p></div></div></aside>
+<aside><div class="panel"><h2>Order summary <span lang="ar" dir="rtl" class="muted" style="font-size:.9rem">ملخص الطلب</span></h2><div data-summary><p class="muted">Loading…</p></div>
+<ul class="facts"><li>Total is final: no fees, no shipping · <span lang="ar" dir="rtl">المبلغ نهائي بدون رسوم</span></li><li>Delivery: instant download link by email · <span lang="ar" dir="rtl">التسليم فوري عبر البريد</span></li><li>Returns: <a href="/policies/refund-policy">refund policy</a> · <span lang="ar" dir="rtl">سياسة الإرجاع</span></li><li>An Arabic/English invoice is issued for every order · <span lang="ar" dir="rtl">فاتورة إلكترونية لكل طلب</span></li></ul></div></aside>
 </div></div>`);
 appPage("/order", "Your order", `<div class="wrap narrow section"><h1>Your order</h1><div class="panel" data-order><p class="muted">Checking your order…</p></div></div>`);
 appPage("/downloads", "My downloads", `<div class="wrap narrow section"><h1>My downloads</h1><p class="muted">Lost your email? Confirm your address and we'll show everything you've bought.</p>
 <div class="panel"><form data-form="email" novalidate><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required><button class="btn wide" type="submit" style="margin-top:14px">Send code</button><p class="msg" role="status" data-msg></p></form>
 <form data-form="code" hidden novalidate><label for="code">Enter the 6-digit code sent to <span data-email-echo></span></label><input id="code" name="code" class="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required><div class="actions" style="margin-top:14px"><button class="btn" type="submit">Show my downloads</button><button class="link-btn" type="button" data-change-email>Use a different email</button></div><p class="msg" role="status" data-msg></p></form>
 <div data-downloads></div></div></div>`);
+const C = site.complaints;
+page("/complaints", "complaints.html", layout({
+  url: "/complaints", title: "Contact and complaints", current: "/complaints",
+  description: `Contact ${site.wordmark} or file a complaint. ${site.business.trade_name_en}, commercial license ${site.business.license}.`,
+  body: `<div class="wrap narrow section">
+<h1>Contact and complaints <span lang="ar" dir="rtl" class="muted" style="font-size:1.2rem">التواصل والشكاوى</span></h1>
+<div class="prose">
+<p>Something wrong with an order, a download or our website? Tell us below and you'll get a reference number by email straight away. We reply within ${C.ack_business_days} business days and aim to resolve every complaint within ${C.resolve_business_days} business days.</p>
+<p lang="ar" dir="rtl">هل لديك مشكلة في طلب أو تحميل أو في الموقع؟ أرسل لنا شكواك عبر النموذج وستصلك رسالة برقم مرجعي فوراً. نرد خلال ${C.ack_business_days} يوم عمل، ونسعى لحل كل شكوى خلال ${C.resolve_business_days} أيام عمل.</p>
+</div>
+<div class="panel" style="margin:20px 0"><form data-form="complaint" novalidate>
+<label for="c-name">Name · الاسم</label><input id="c-name" name="name" type="text" autocomplete="name" maxlength="80" required>
+<label for="c-email">Email · البريد الإلكتروني</label><input id="c-email" name="email" type="email" autocomplete="email" required>
+<label for="c-order">Order number, if any · رقم الطلب (إن وجد)</label><input id="c-order" name="order" type="text" maxlength="20" placeholder="SC-XXXXXXXX">
+<label for="c-msg">What happened? · تفاصيل الشكوى</label><textarea id="c-msg" name="message" rows="6" maxlength="4000" required></textarea>
+<button class="btn wide" type="submit" style="margin-top:14px">Send · إرسال</button><p class="msg" role="status" data-msg></p>
+</form></div>
+<div class="prose">
+<h2>Other ways to reach us · طرق أخرى للتواصل</h2>
+<ul><li>Email · البريد: <a href="mailto:${site.email}">${site.email}</a></li>${site.business.phone ? `<li>Phone · الهاتف: <a href="tel:${site.business.phone.replace(/\s/g, "")}">${esc(site.business.phone)}</a></li>` : ""}<li>Post · البريد العادي: ${esc(site.business.address_en)}</li></ul>
+<h2>Not satisfied? · إذا لم تُحل شكواك</h2>
+<p>You can complain to the Ministry of Commerce and Industry's consumer protection department online at the <a href="${C.moci_url}" rel="noopener">Kuwait Government Online consumer complaints service</a>, or by calling <strong>${C.moci_phone}</strong>.</p>
+<p lang="ar" dir="rtl">يمكنك تقديم شكوى إلى إدارة حماية المستهلك في وزارة التجارة والصناعة عبر <a href="${C.moci_url}" rel="noopener">خدمة شكاوى المستهلكين في بوابة الكويت الإلكترونية</a> أو الاتصال على الرقم <strong>${C.moci_phone}</strong>.</p>
+</div></div>`,
+}));
+appPage("/invoice", "Invoice", `<div class="wrap narrow section"><div data-invoice><p class="muted">Loading invoice…</p></div></div>`);
 write("404.html", layout({ url: "/404", title: "Page not found", noindex: true, body: `<div class="wrap narrow section"><h1>Page not found</h1><p>That page doesn't exist (any more). Try the <a href="/collections/all">store</a> or the <a href="/blogs/news">blog</a>.</p></div>` }));
 
 // ---------- data for app.js ----------
 write("catalog.json", JSON.stringify({
-  products: Object.fromEntries(products.map((p) => [p.handle, { title: p.title, price_fils: p.price_fils, img: img(cover(p).src, 480), includes: p.includes }])),
+  products: Object.fromEntries(products.map((p) => [p.handle, { title: p.title, title_ar: p.title_ar, kind_ar: p.kind_ar, price_fils: p.price_fils, img: img(cover(p).src, 480), includes: p.includes }])),
   download_days: site.download_days,
+  seller: identity(site.business, site.email, { invoice: true }),
 }));
 
 // ---------- feeds, sitemap, headers ----------

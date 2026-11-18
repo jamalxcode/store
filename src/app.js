@@ -253,7 +253,7 @@ async function initOrder() {
       if (last?.id === o.id) { cart.set(cart.get().filter((h) => !last.items.includes(h))); local.del("lastOrder"); goat("order-paid"); }
       box.innerHTML = `<p class="status paid"><span class="dot"></span>Thank you, ${esc(o.name)}! Your order is complete.</p>
 <p>Order <strong>${esc(o.id)}</strong>. We've emailed these links to <strong>${esc(o.email)}</strong>. Links work for ${o.link_days} days; you can always get fresh ones from <a href="/downloads">My downloads</a>.</p>
-${fileList(o.files)}${items}`;
+${fileList(o.files)}${items}<p><a class="btn secondary" href="/invoice?id=${encodeURIComponent(o.id)}&t=${encodeURIComponent(t)}">View invoice · الفاتورة</a></p>`;
     } else if (o.status === "failed") {
       box.innerHTML = `<p class="status failed"><span class="dot"></span>The payment didn't go through.</p><p>You haven't been charged for order <strong>${esc(o.id)}</strong>.</p>${items}<a class="btn" href="/checkout?items=${o.items.map((i) => encodeURIComponent(i.handle)).join(",")}">Try again</a>`;
     } else {
@@ -276,7 +276,7 @@ async function initDownloads() {
     try {
       const { orders } = await api("/api/downloads", { token: v.token });
       out.innerHTML = `<p>Signed in as <strong>${esc(v.email)}</strong>.</p>` + (orders.length
-        ? orders.map((o) => `<section style="margin-top:20px"><h2 style="font-size:1.05rem">${esc(o.items.map((i) => i.title).join(", "))}</h2><p class="muted" style="margin:0">Order ${esc(o.id)} · ${new Date(o.paid_at).toLocaleDateString("en-GB")}</p>${fileList(o.files)}</section>`).join("")
+        ? orders.map((o) => `<section style="margin-top:20px"><h2 style="font-size:1.05rem">${esc(o.items.map((i) => i.title).join(", "))}</h2><p class="muted" style="margin:0">Order ${esc(o.id)} · ${new Date(o.paid_at).toLocaleDateString("en-GB")} · <a href="/invoice?id=${encodeURIComponent(o.id)}&t=${encodeURIComponent(o.view)}">Invoice · الفاتورة</a></p>${fileList(o.files)}</section>`).join("")
         : `<p>No purchases for this email yet. <a href="/collections/all">Browse the store</a></p>`);
     } catch (err) {
       if (err.status === 401) { session.del("verified"); location.reload(); return; }
@@ -288,7 +288,59 @@ async function initDownloads() {
   if (v) show(v);
 }
 
+// ---------- invoice (Arabic first, bilingual; Kuwait Consumer Protection Law Arts. 15 and 19) ----------
+async function initInvoice() {
+  const box = $("[data-invoice]");
+  if (!box) return;
+  const p = new URLSearchParams(location.search);
+  const [cat, o] = await Promise.all([catalog(), api(`/api/order?id=${encodeURIComponent(p.get("id") || "")}&t=${encodeURIComponent(p.get("t") || "")}`).catch((e) => ({ error: e.message }))]);
+  if (o.error) { box.innerHTML = `<p class="msg err">${esc(o.error)}</p>`; return; }
+  if (o.status !== "paid") { box.innerHTML = `<p>The invoice is issued once the order is paid. <a href="/order?id=${encodeURIComponent(o.id)}&t=${encodeURIComponent(p.get("t"))}">Back to the order</a></p>`; return; }
+  const kw = (iso, loc) => new Date(iso).toLocaleString(loc, { timeZone: "Asia/Kuwait", dateStyle: "medium", timeStyle: "short" });
+  const ar = (fils) => (fils === 0 ? "مجاني" : `${(fils / 1000).toFixed(3)} د.ك`);
+  const rows = o.items.map((i) => {
+    const c = cat.products[i.handle] || {};
+    return `<tr><td><span lang="ar" dir="rtl">${esc(c.title_ar || i.title)}</span><br>${esc(i.title)}<br><span class="muted" lang="ar" dir="rtl">${esc(c.kind_ar || "منتج رقمي")}، تسليم إلكتروني فوري · digital, delivered instantly</span></td><td class="num">1</td><td class="num">${ar(i.price_fils)}<br>${money(i.price_fils)}</td></tr>`;
+  }).join("");
+  const pay = o.payment === "free" ? "مجاني · Free" : `Tap${o.tap_charge_id ? ` (${esc(o.tap_charge_id)})` : ""}`;
+  box.innerHTML = `<article class="invoice">
+<header><div><h1 lang="ar" dir="rtl">فاتورة إلكترونية</h1><h1>Invoice</h1></div><div style="text-align:end"><strong>${esc(o.id)}</strong><br>${esc(kw(o.paid_at, "ar-KW"))}<br>${esc(kw(o.paid_at, "en-GB"))} (Kuwait)</div></header>
+<div class="seller"><p lang="ar" dir="rtl"><strong>البائع</strong><br>${cat.seller.ar.map(esc).join("<br>")}</p><p><strong>Seller</strong><br>${cat.seller.en.map(esc).join("<br>")}</p></div>
+<div class="meta"><span><strong lang="ar">العميل · Customer:</strong> ${esc(o.name)}</span><span>${esc(o.email)}</span><span><strong>الدفع · Payment:</strong> ${pay}</span><span><strong>التسليم · Delivery:</strong> <span lang="ar" dir="rtl">فوري إلكترونياً</span> · instant download</span></div>
+<table><thead><tr><th><span lang="ar">الوصف</span> · Description</th><th class="num"><span lang="ar">الكمية</span> · Qty</th><th class="num"><span lang="ar">السعر</span> · Price</th></tr></thead><tbody>${rows}</tbody>
+<tfoot><tr><th><span lang="ar">الإجمالي</span> · Total (KWD)</th><th></th><th class="num">${ar(o.total_fils)}<br>${money(o.total_fils)}</th></tr></tfoot></table>
+<p class="note" lang="ar" dir="rtl">فاتورة إلكترونية صادرة عن النظام ولا تحتاج إلى توقيع. الأسعار بالدينار الكويتي وتشمل كل الرسوم. الإرجاع والاسترداد حسب سياسة الإرجاع المنشورة على الموقع.</p>
+<p class="note">Electronic invoice issued by the system; no signature required. Prices are in Kuwaiti dinar and include all fees. Returns and refunds follow the refund policy at sala.company/policies/refund-policy.</p>
+</article>
+<p data-print-hide style="margin-top:16px"><button class="btn" type="button" data-print>Print or save as PDF · طباعة</button></p>`;
+  $("[data-print]", box).addEventListener("click", () => window.print());
+}
+
+// ---------- complaints ----------
+function initComplaints() {
+  const form = $('[data-form="complaint"]');
+  if (!form) return;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = $("[data-msg]", form);
+    const data = { name: form.name.value.trim(), email: form.email.value.trim(), order_id: form.order.value.trim(), message: form.message.value.trim() };
+    if (!data.name || !data.message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) { msg.className = "msg err"; msg.textContent = "Please fill in your name, a valid email and the details. · يرجى تعبئة الاسم والبريد والتفاصيل."; return; }
+    const btn = $("button[type=submit]", form);
+    btn.disabled = true;
+    try {
+      const r = await api("/api/complaint", data);
+      form.reset();
+      msg.className = "msg ok";
+      msg.textContent = `Received. Your reference number is ${r.reference}; we've emailed you a copy. · تم الاستلام، رقمك المرجعي ${r.reference}.`;
+      goat("complaint");
+    } catch (err) { msg.className = "msg err"; msg.textContent = err.message; }
+    finally { btn.disabled = false; }
+  });
+}
+
 initChrome();
+initInvoice();
+initComplaints();
 initStock();
 initCart();
 initCheckout();
