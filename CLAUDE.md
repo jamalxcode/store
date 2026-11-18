@@ -3,7 +3,7 @@
 The sala.company ebook store, rebuilt off Shopify as one Cloudflare Worker: static pages plus a small API, with D1 and a private R2 bucket.
 
 Read before working:
-- `docs/REQUIREMENTS.md`: must-haves. Kuwait Ministry of Commerce details (trade name, license 502625, address) on every
+- `docs/REQUIREMENTS.md`: must-haves. Kuwait Ministry of Commerce details (trade name, CR 502625, address) on every
   page and in receipts; Tap payments, confirmed server-side only; checkout asks for a verified email and a name, never a postal address.
 - `docs/DEPLOY.md`: setup, cutover and operations.
 - `docs/compliance/AUDIT.md`: Kuwait MOCI checklist status. Company identity comes only from `catalog/site.json` → `business` via `src/identity.js`; never hard-code it.

@@ -3,8 +3,8 @@
 export function identity(b, email, { invoice = false } = {}) {
   const ar = [
     b.trade_name_ar + (b.legal_form_ar ? ` | ${b.legal_form_ar}` : ""),
-    b.cr_number ? `رقم السجل التجاري: ${b.cr_number}` : null,
-    `رقم الترخيص التجاري: ${b.license} (بتاريخ: ${b.license_date})`,
+    b.cr_number ? `رقم السجل التجاري: ${b.cr_number}${b.cr_date ? ` (بتاريخ: ${b.cr_date})` : ""}` : null,
+    `رقم الترخيص التجاري: ${b.license}${b.license_date ? ` (بتاريخ: ${b.license_date})` : ""}${b.license_type_ar ? ` – ${b.license_type_ar}` : ""}`,
     invoice && b.capital_kwd ? `رأس المال: ${b.capital_kwd} د.ك${b.paid_up_kwd ? `، المدفوع: ${b.paid_up_kwd} د.ك` : ""}` : null,
     `العنوان: ${b.address_ar}`,
     b.phone ? `الهاتف: ${b.phone}` : null,
@@ -12,8 +12,8 @@ export function identity(b, email, { invoice = false } = {}) {
   ].filter(Boolean);
   const en = [
     b.trade_name_en + (b.legal_form_en ? ` | ${b.legal_form_en}` : ""),
-    b.cr_number ? `Commercial register no.: ${b.cr_number}` : null,
-    `Commercial license no.: ${b.license} (${b.license_date})`,
+    b.cr_number ? `Commercial register no.: ${b.cr_number}${b.cr_date ? ` (${b.cr_date})` : ""}` : null,
+    `Commercial license no.: ${b.license}${b.license_date ? ` (${b.license_date})` : ""}${b.license_type_en ? ` – ${b.license_type_en}` : ""}`,
     invoice && b.capital_kwd ? `Capital: ${b.capital_kwd} KWD${b.paid_up_kwd ? `, paid up: ${b.paid_up_kwd} KWD` : ""}` : null,
     `Address: ${b.address_en}`,
     b.phone ? `Phone: ${b.phone}` : null,

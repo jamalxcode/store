@@ -10,7 +10,9 @@ show them **at least as visibly** (on every page in the footer, plus a dedicated
 | Field | English | العربية |
 |---|---|---|
 | Trade name | SALA CO FOR COMPUTER CONSULTING AND FACILITIES MANAGEMENT ACTIVITIES | شركة سلة لأنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية |
-| Commercial license | 502625 (issued 23/05/2024) | الرخصة التجارية: 502625 (بتاريخ: 23/05/2024) |
+| Commercial register | 502625 (23/05/2024) | رقم السجل التجاري: 502625 |
+| Commercial licence | 2024/16512 (freelance business licence) | رقم الترخيص التجاري: 2024/16512 |
+| Legal form, capital | Single Person Company, 1000 KWD | شركة الشخص الواحد، رأس المال 1000 د.ك |
 | Address | PO Box 306, code 48154, Al-Salam, Kuwait | صندوق بريد 306، الرمز البريدي 48154، السالم، الكويت |
 | Email | basketservicesllc@gmail.com | |
 | Website / portal | sala.company / go.sala.company | |

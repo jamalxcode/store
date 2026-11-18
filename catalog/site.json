@@ -9,17 +9,23 @@
   "business": {
     "trade_name_en": "SALA CO FOR COMPUTER CONSULTING AND FACILITIES MANAGEMENT ACTIVITIES",
     "trade_name_ar": "شركة سلة لأنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية",
-    "license": "502625",
-    "license_date": "23/05/2024",
+    "license": "2024/16512",
+    "license_date": null,
     "address_en": "PO Box 306, code 48154, Al-Salam, Kuwait",
     "address_ar": "صندوق بريد 306، الرمز البريدي 48154، السالم، الكويت",
     "portal": "https://go.sala.company",
-    "legal_form_ar": null,
-    "legal_form_en": null,
-    "cr_number": null,
-    "capital_kwd": null,
+    "legal_form_ar": "شركة الشخص الواحد",
+    "legal_form_en": "Single Person Company",
+    "cr_number": "502625",
+    "capital_kwd": "1000",
     "paid_up_kwd": null,
-    "phone": null
+    "phone": null,
+    "license_type_ar": "ترخيص الأعمال الحرة",
+    "license_type_en": "Freelance business license",
+    "central_number": "1012202422603",
+    "cr_date": "23/05/2024",
+    "activity_code": "620200",
+    "activity_ar": "أنشطة الخبرة الاستشارية الحاسوبية وإدارة المرافق الحاسوبية"
   },
   "announcements": [
     {

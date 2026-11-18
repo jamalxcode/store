@@ -241,7 +241,7 @@ for (const a of articles) {
 // Policies (word for word from Shopify; bilingual, paragraphs pick their own direction)
 for (const p of policies) {
   page(`/policies/${p.handle}`, `policies/${p.handle}.html`, layout({
-    url: `/policies/${p.handle}`, title: p.title, description: `${p.title} for ${site.wordmark} (${site.business.trade_name_en}, commercial license ${site.business.license}).`,
+    url: `/policies/${p.handle}`, title: p.title, description: `${p.title} for ${site.wordmark} (${site.business.trade_name_en}, commercial register ${site.business.cr_number}, license ${site.business.license}).`,
     body: `<article class="wrap narrow section prose"><h1>${esc(p.title)}</h1>${p.body_html}</article>`,
   }));
 }
@@ -280,7 +280,7 @@ appPage("/downloads", "My downloads", `<div class="wrap narrow section"><h1>My d
 const C = site.complaints;
 page("/complaints", "complaints.html", layout({
   url: "/complaints", title: "Contact and complaints", current: "/complaints",
-  description: `Contact ${site.wordmark} or file a complaint. ${site.business.trade_name_en}, commercial license ${site.business.license}.`,
+  description: `Contact ${site.wordmark} or file a complaint. ${site.business.trade_name_en}, commercial register ${site.business.cr_number}, license ${site.business.license}.`,
   body: `<div class="wrap narrow section">
 <h1>Contact and complaints <span lang="ar" dir="rtl" class="muted" style="font-size:1.2rem">التواصل والشكاوى</span></h1>
 <div class="prose">

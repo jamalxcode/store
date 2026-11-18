@@ -44,7 +44,7 @@ Outside services:
 - [ ] A declined test card shows "The payment didn't go through".
 - [ ] Get a free product: the email code works and the download starts.
 - [ ] `/downloads` with the same email lists the orders.
-- [ ] The footer and policies show license 502625 on phone and desktop.
+- [ ] The footer and policies show CR 502625 on phone and desktop.
 
 ## Cutover from Shopify
 

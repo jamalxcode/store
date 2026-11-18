@@ -12,8 +12,11 @@
 - Receipt and code emails are now bilingual, Arabic first.
 - 3 new end-to-end tests (23 total); the browser check now covers 17 pages.
 
+### Company register details
+- From the commercial register extract: CR **502625** (23/05/2024), licence **2024/16512** (freelance business licence), legal form **شركة الشخص الواحد**, capital **1000 KWD**. All are in the identity block on every page, email and invoice (capital on invoices). Earlier versions called 502625 the licence number, which was wrong. The documents themselves aren't stored in the repo, which is public.
+
 ### Still missing for full compliance
-- CR number, legal form, capital and paid-up amount, and a business phone (from the owner).
+- Business phone, paid-up amount, and confirmation that licensed activity 620200 covers ebook sales.
 - Privacy policy update (draft waiting for approval).
 
 ## 2026-11-18 (earlier)

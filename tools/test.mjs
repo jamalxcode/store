@@ -262,11 +262,13 @@ await test("webhook with unknown or missing charge id is ignored", async () => {
   assert.equal((await post("/api/tap/webhook", { hello: 1 })).body.ignored, "no charge id");
 });
 
-await test("every page shows the Arabic trade name and license in the footer; product pages have Arabic info", async () => {
+await test("every page shows the Arabic trade name, CR 502625 and licence 2024/16512 in the footer; product pages have Arabic info", async () => {
   for (const p of ["/", "/products/the-nadia-upgrade", "/checkout", "/complaints", "/invoice"]) {
     const h = await (await fetch(BASE + p)).text();
     assert.match(h, /شركة سلة لأنشطة الخبرة الاستشارية الحاسوبية/, p);
-    assert.match(h, /رقم الترخيص التجاري: 502625/, p);
+    assert.match(h, /رقم الترخيص التجاري: 2024\/16512/, p);
+    assert.match(h, /رقم السجل التجاري: 502625 \(بتاريخ: 23\/05\/2024\)/, p);
+    assert.match(h, /شركة الشخص الواحد/, p);
   }
   const prod = await (await fetch(BASE + "/products/the-nadia-upgrade")).text();
   assert.match(prod, /ترقية نادية/);

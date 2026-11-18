@@ -10,9 +10,12 @@ GitHub (Actions → Deploy). sala.company still runs on Shopify.
 3. [ ] **Tap test key** (`sk_test_…`): add it in the same place as secret `TAP_SECRET_KEY`.
 4. [ ] **Ebook files**: 19 products need one (the bundle uses its books' files). Upload them to R2 `sala-ebooks` under `ebooks/<handle>/`, or send them to Claude.
 5. [x] **Ministry of Commerce checklist** received (`docs/compliance/KUWAIT-WEBSITE-CHECKLIST.md`). Audit: `docs/compliance/AUDIT.md`.
-5a. [ ] **Commercial register (CR) number**: required on the site in Arabic (fine KD 1,000–5,000 if missing).
-5b. [ ] **Legal form** (e.g. شركة الشخص الواحد), **capital and paid-up amount**: for invoices.
-5c. [ ] **Business phone** (monitored): for invoices and the contact page.
+5a. [x] From the register extract: **CR 502625**, **licence 2024/16512**, شركة الشخص الواحد, capital 1000 KWD, now shown everywhere.
+5f. [ ] **Licensed activity is only 620200 (computer consulting).** Ask MOCI whether it covers selling ebooks online, or add a digital-content / e-commerce activity.
+5g. [ ] The policies (word for word from Shopify) say "Commercial License: 502625". Per the extract that's the register number; the licence is 2024/16512. Approve correcting the policies?
+5b. [ ] Paid-up amount: is the 1000 KWD capital fully paid? (Capital is now on invoices.)
+5c. [ ] **Business phone**: can the number on the MOCI form be published, or use another?
+5e. [ ] Freelance licence: add the company name and CR 502625 to every social profile bio, and list the sites in the annual MOCI update.
 5d. [ ] Confirm the licensed activities cover selling digital products (licence and CR extract).
 6. [ ] **Tap details**: direct Tap merchant account or Shopify plugin only? Which payment methods are on (KNET, cards, Apple Pay)?
 7. [ ] **Privacy policy**: approve the draft in `docs/compliance/AUDIT.md` (drops "billing address" and Shopify; adds IP, Tap, Cloudflare, Resend, GoatCounter). This is a failing check (CX-06).

@@ -1,6 +1,6 @@
 # sala.company store
 
-The ebook store of SALA CO (Kuwait, commercial license 502625), moved off Shopify onto one Cloudflare Worker.
+The ebook store of SALA CO (Kuwait, commercial register 502625, licence 2024/16512), moved off Shopify onto one Cloudflare Worker.
 Checkout asks only for a confirmed email and a name, payment goes through Tap, and ebooks are delivered from a
 private bucket.
 
