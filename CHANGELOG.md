@@ -16,6 +16,7 @@
 - CR number, legal form, capital and paid-up amount, and a business phone (from the owner).
 - Privacy policy update (draft waiting for approval).
 
+## 2026-11-18 (earlier)
 
 ### Live (test address)
 - The store runs at **https://sala-store.jamal-akuna-matata.workers.dev** on Cloudflare. GitHub deploys it after tests pass on `main`. sala.company is still on Shopify.
