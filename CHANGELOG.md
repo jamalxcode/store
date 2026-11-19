@@ -4,6 +4,11 @@ Newest first. Test address: https://sala-store.jamal-akuna-matata.workers.dev (s
 
 ## 2026-11-19
 
+### Added: go.sala.company featured
+- A big **go.sala.company** card on the home page, above Latest news: brand purple, English and Arabic text, a "Visit the portal" button, and small links to the portal blog post and the games. Content lives in `catalog/site.json` → `portal_feature`.
+- **Portal ↗** in the top menu (and the phone menu).
+- The browser check now also covers tablet width (768 px): 16 pages × phone/tablet/desktop × light/dark.
+
 ### Ebooks loaded
 - All **17 ebooks** are in the private bucket `sala-ebooks`, each as **EPUB, PDF (5x8) and Mobi (Kindle)**: 51 files, 1.2 GB. They come from the owner's Draft2Digital account. Before going live, each file's title was checked against its book (EPUB `<dc:title>` or the PDF's first page), and each file was named after its book (e.g. `The Nadia Upgrade.epub`).
 - **18 products are on sale**: 17 ebooks plus the AI Revolution Collection bundle, which delivers 9 files.

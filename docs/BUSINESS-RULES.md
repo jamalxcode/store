@@ -77,4 +77,5 @@ The full control-by-control audit is in [compliance/AUDIT.md](compliance/AUDIT.m
 - Every page meets WCAG AA contrast in light and dark mode, with no sideways scrolling on phones. `npm run ui-check` enforces both.
 - Browser API calls are refused from other sites (Origin check). The Tap webhook is exempt.
 - Content Security Policy: scripts only from the site itself, GoatCounter, and the two inline scripts allowed by hash.
+- **go.sala.company** (the company portal) is featured as one big link on the home page (`site.json` → `portal_feature`) and as **Portal ↗** in the top menu.
 - Analytics: the shared sala.company GoatCounter, plus events `cart-add-*`, `buy-now-*`, `checkout-pay`, `checkout-free` and `order-paid`.

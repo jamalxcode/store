@@ -24,7 +24,7 @@ The full rules are in [docs/BUSINESS-RULES.md](docs/BUSINESS-RULES.md).
 ```bash
 npm ci
 npm test            # build + 23 end-to-end checks: real Worker in wrangler dev, fake Tap and Resend
-npm run ui-check    # every page in Chromium: phone/desktop, light/dark, sideways scroll, axe (WCAG AA)
+npm run ui-check    # every page in Chromium: phone/tablet/desktop, light/dark, sideways scroll, axe (WCAG AA)
 npm run dev         # local store at http://localhost:8787 (put test keys in .dev.vars)
 npm run media       # web-sized images and trailers after adding a product image or video (needs ffmpeg)
 npm run upload-ebooks -- ./ebooks   # upload ebook files to the private bucket

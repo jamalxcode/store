@@ -61,6 +61,11 @@
       "text": "AI",
       "href": "https://ai.sala.company",
       "external": true
+    },
+    {
+      "text": "Portal",
+      "href": "https://go.sala.company",
+      "external": true
     }
   ],
   "games": [
@@ -87,5 +92,13 @@
     "moci_phone": "135",
     "ack_business_days": 2,
     "resolve_business_days": 7
+  },
+  "portal_feature": {
+    "href": "https://go.sala.company",
+    "title": "go.sala.company",
+    "text": "The gateway to everything sala.company makes: tools, apps, games, AI projects and services, all in one place.",
+    "text_ar": "البوابة إلى كل ما تقدمه sala.company: أدوات وتطبيقات وألعاب ومشاريع ذكاء اصطناعي وخدمات، في مكان واحد.",
+    "cta": "Visit the portal",
+    "more": "/blogs/news/welcome-to-go-sala-company-the-gateway-to-all-things-sala"
   }
 }

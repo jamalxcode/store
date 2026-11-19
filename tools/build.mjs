@@ -172,6 +172,16 @@ ${trailerProducts.length ? `<section class="section"><div class="wrap"><div clas
     .map((c) => { const f = inCollection(c.handle)[0]; return `<a class="collection" href="/collections/${c.handle}">${f ? picture(cover(f).src, { sizes: "64px", ...dims(cover(f)) }) : ""}<div><strong>${esc(c.title)}</strong><span>${esc(c.description)}</span></div></a>`; })
     .join("")}</div></div></section>
 <section class="section"><div class="wrap"><div class="section-head"><h2>All products</h2><a href="/collections/all">View all</a></div>${grid(products)}</div></section>
+${site.portal_feature ? `<section class="section"><div class="wrap"><h2 class="sr-only">More from sala.company</h2>
+<a class="portal" href="${site.portal_feature.href}" rel="noopener">
+<span class="portal-kicker">More from sala.company · المزيد من سلة</span>
+<span class="portal-title">${esc(site.portal_feature.title)} <span aria-hidden="true">↗</span></span>
+<span class="portal-text">${esc(site.portal_feature.text)}</span>
+<span class="portal-text" lang="ar" dir="rtl">${esc(site.portal_feature.text_ar)}</span>
+<span class="portal-cta">${esc(site.portal_feature.cta)} <span aria-hidden="true">→</span></span>
+</a>
+<p class="portal-more"><a href="${site.portal_feature.more}">Read about the portal</a>${site.games.map((g) => ` · <a href="${g.href}" rel="noopener">Play ${esc(g.text)}</a>`).join("")}</p>
+</div></section>` : ""}
 <section class="section"><div class="wrap"><div class="section-head"><h2>Latest news</h2><a href="/blogs/news">View all</a></div><ul class="posts">${articles.slice(0, 3).map(postCard).join("")}</ul></div></section>`,
 }));
 

@@ -12,7 +12,7 @@ Read before working:
 - `docs/TODO.md`: open items and who owns them. Add a `CHANGELOG.md` entry for user-visible changes.
 
 Commands (Node 22): `npm ci`, `npm test` (build + 23 end-to-end checks in wrangler dev against fake Tap/Resend),
-`npm run ui-check` (Chromium + axe, phone and desktop, light and dark), `npm run dev`, `npm run deploy`.
+`npm run ui-check` (Chromium + axe, phone, tablet and desktop, light and dark), `npm run dev`, `npm run deploy`.
 
 Rules:
 - `catalog/` is the source of truth. Prices are integer **fils** (4.000 KWD = 4000) and show with 3 decimals.

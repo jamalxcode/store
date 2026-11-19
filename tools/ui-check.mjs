@@ -26,7 +26,7 @@ const pages = ["/", "/collections/all", "/collections/children-ebooks", "/produc
 const browser = await chromium.launch();
 let problems = 0;
 for (const scheme of ["light", "dark"]) {
-  for (const vp of [{ name: "phone", width: 390, height: 844 }, { name: "desktop", width: 1280, height: 900 }]) {
+  for (const vp of [{ name: "phone", width: 390, height: 844 }, { name: "tablet", width: 768, height: 1024 }, { name: "desktop", width: 1280, height: 900 }]) {
     const ctx = await browser.newContext({ viewport: vp, colorScheme: scheme, reducedMotion: "reduce", bypassCSP: true });
     for (const p of pages) {
       const page = await ctx.newPage();
@@ -53,5 +53,5 @@ for (const scheme of ["light", "dark"]) {
   }
 }
 await browser.close();
-console.log(problems ? `${problems} problems` : `ui check passed (${pages.length} pages × 4)`);
+console.log(problems ? `${problems} problems` : `ui check passed (${pages.length} pages × 6)`);
 process.exit(problems ? 1 : 0);
