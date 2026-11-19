@@ -10,7 +10,7 @@ GitHub (Actions → Deploy). sala.company still runs on Shopify.
 3. [ ] Tap support replied (18 Nov). **Tap test key** (`sk_test_…`): add it in the same place as secret `TAP_SECRET_KEY`.
 4. [x] **Ebook files**: all 17 books are in R2 as EPUB + PDF + Mobi (19 Nov), downloaded from Draft2Digital, titles checked. The bundle is available too.
 4a. [ ] **Fun Kuwait font** and **Super Coder source code** (.zip) still missing.
-4b. [ ] Delete the 51 loose copies (1.2 GB) at the top level of `sala-ebooks`. Every one is now copied into `ebooks/`, so they're unused.
+4b. [x] Loose upload copies deleted (19 Nov). The bucket holds only `ebooks/` (17 books × EPUB, PDF and Mobi = 51 files, 1.2 GB).
 5. [x] **Ministry of Commerce checklist** received (`docs/compliance/KUWAIT-WEBSITE-CHECKLIST.md`). Audit: `docs/compliance/AUDIT.md`.
 5a. [x] From the register extract: **CR 502625**, **licence 2024/16512**, شركة الشخص الواحد, capital 1000 KWD, now shown everywhere.
 5f. [ ] **Licensed activity is only 620200 (computer consulting).** Ask MOCI whether it covers selling ebooks online, or add a digital-content / e-commerce activity.
