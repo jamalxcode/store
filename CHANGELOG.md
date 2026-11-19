@@ -2,7 +2,7 @@
 
 ## 2026-11-19
 
-- All 17 ebooks uploaded to the private bucket as EPUB + PDF + Mobi (Kindle). Product pages list the formats. with clean file names and each title checked. 18 of 20 products are on sale, including the bundle. Still missing: the Fun Kuwait font and the Super Coder source code.
+- All 17 ebooks uploaded to the private bucket as EPUB + PDF + Mobi (Kindle). Product pages list the formats. with clean file names and each title checked. 18 of 20 products are on sale, including the bundle. The Fun Kuwait font and Super Coder source code are hidden for now (new `hidden` flag; their URLs redirect to the shop). The home page button and announcement for the free font were replaced. The store is complete apart from the Tap keys.
 
 ## 2026-11-18 (later)
 

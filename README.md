@@ -5,7 +5,7 @@ Checkout asks only for a confirmed email and a name, payment goes through Tap, a
 private bucket.
 
 **Status:** live for testing at https://sala-store.jamal-akuna-matata.workers.dev. https://sala.company is still
-Shopify until cutover. Waiting for the Tap API keys and the ebook files. See [docs/TODO.md](docs/TODO.md).
+Shopify until cutover. All 17 ebooks and the bundle are loaded (EPUB, PDF, Mobi). Waiting only for Tap's API keys. See [docs/TODO.md](docs/TODO.md).
 
 ## How it works
 

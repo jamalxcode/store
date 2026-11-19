@@ -11,7 +11,10 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const OUT = path.join(root, "public");
 const read = (f) => JSON.parse(fs.readFileSync(path.join(root, "catalog", f), "utf8"));
 const site = read("site.json");
-const products = read("products.json");
+// `hidden: true` products stay in the catalog (and the Worker can still sell them if their files exist)
+// but get no page, no listing and no sitemap entry; their URL redirects to /collections/all.
+const allProducts = read("products.json");
+const products = allProducts.filter((p) => !p.hidden);
 const collections = read("collections.json");
 const articles = read("articles.json");
 const policies = site.policies.map((h) => read(`policies/${h}.json`));
@@ -159,8 +162,8 @@ page("/", "index.html", layout({
   current: "/",
   jsonld: { "@context": "https://schema.org", "@type": "OnlineStore", name: site.name, url: site.url, logo: `${site.url}/logo.png`, email: site.email, address: { "@type": "PostalAddress", addressLocality: "Al-Salam", addressCountry: "KW", postOfficeBoxNumber: "306", postalCode: "48154" } },
   body: `<section class="hero"><div class="wrap">
-<div><h1>${esc(site.tagline)}</h1><p>Sci-fi, children's books, AI guides and free goodies by Jamal Faisal Almutawa. Pay with KNET or card, download straight away. All you need is an email address.</p>
-<div class="actions"><a class="btn" href="/collections/all">Browse the store</a><a class="btn secondary" href="/products/fun-kuwait">Get the free font</a></div></div>
+<div><h1>${esc(site.tagline)}</h1><p>Sci-fi, children's books and AI guides by Jamal Faisal Almutawa. Pay with KNET or card, download straight away. All you need is an email address.</p>
+<div class="actions"><a class="btn" href="/collections/all">Browse the store</a><a class="btn secondary" href="/collections/children-ebooks">Children's books</a></div></div>
 <div class="hero-art" aria-hidden="true">${heroPicks.map((p) => `<a href="/products/${p.handle}" tabindex="-1">${picture(cover(p).src, { sizes: "160px", eager: true, ...dims(cover(p)) })}</a>`).join("")}</div>
 </div></section>
 ${trailerProducts.length ? `<section class="section"><div class="wrap"><div class="section-head"><h2>Watch the trailers</h2><a href="/collections/featured">See both books</a></div><div class="trailers">${trailerProducts.map(trailer).join("")}</div></div></section>` : ""}
@@ -353,6 +356,6 @@ write("_redirects", `/collections/:c/products/:p /products/:p 301
 /pages/* / 302
 /search /collections/all 302
 /collections /collections/all 301
-/blogs /blogs/news 301
+${allProducts.filter((p) => p.hidden).map((p) => `/products/${p.handle} /collections/all 302\n`).join("")}/blogs /blogs/news 301
 `);
 console.log(`built ${pages.length} indexed pages into public/`);

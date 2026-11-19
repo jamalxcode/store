@@ -7,9 +7,9 @@ GitHub (Actions → Deploy). sala.company still runs on Shopify.
 
 1. [x] **Resend** (done 2026-11-18, region Ireland, auto-configured on GoDaddy): sign up, add the domain `sala.company`, send the DNS records it shows, and say where the domain is registered.
 2. [x] **Resend key**: paste it into Cloudflare → Workers & Pages → sala-store → Settings → Variables and Secrets, as secret `RESEND_API_KEY`.
-3. [ ] Tap support replied (18 Nov). **Tap test key** (`sk_test_…`): add it in the same place as secret `TAP_SECRET_KEY`.
+3. [ ] **Waiting on Tap support** for API keys (as of 19 Nov). **Tap test key** (`sk_test_…`): add it in the same place as secret `TAP_SECRET_KEY`.
 4. [x] **Ebook files**: all 17 books are in R2 as EPUB + PDF + Mobi (19 Nov), downloaded from Draft2Digital, titles checked. The bundle is available too.
-4a. [ ] **Fun Kuwait font** and **Super Coder source code** (.zip) still missing.
+4a. [-] Fun Kuwait font and Super Coder source code: **hidden from the store** (owner, 19 Nov). To bring them back, upload the files and remove `"hidden": true`.
 4b. [x] Loose upload copies deleted (19 Nov). The bucket holds only `ebooks/` (17 books × EPUB, PDF and Mobi = 51 files, 1.2 GB).
 5. [x] **Ministry of Commerce checklist** received (`docs/compliance/KUWAIT-WEBSITE-CHECKLIST.md`). Audit: `docs/compliance/AUDIT.md`.
 5a. [x] From the register extract: **CR 502625**, **licence 2024/16512**, شركة الشخص الواحد, capital 1000 KWD, now shown everywhere.

@@ -22,7 +22,7 @@ for (let i = 0; ; i++) {
   await new Promise((r) => setTimeout(r, 500));
 }
 
-const pages = ["/", "/collections/all", "/collections/children-ebooks", "/products/the-boy-who-defied-the-machine", "/products/ai-revolution-collection-from-art-to-code", "/products/fun-kuwait", "/blogs/news", "/blogs/news/welcome-to-sala-company", "/policies/refund-policy", "/policies/contact-information", "/complaints", "/invoice?id=x&t=y", "/cart", "/checkout?item=the-nadia-upgrade", "/downloads", "/order?id=x&t=y", "/nope"];
+const pages = ["/", "/collections/all", "/collections/children-ebooks", "/products/the-boy-who-defied-the-machine", "/products/ai-revolution-collection-from-art-to-code", "/blogs/news", "/blogs/news/welcome-to-sala-company", "/policies/refund-policy", "/policies/contact-information", "/complaints", "/invoice?id=x&t=y", "/cart", "/checkout?item=the-nadia-upgrade", "/downloads", "/order?id=x&t=y", "/nope"];
 const browser = await chromium.launch();
 let problems = 0;
 for (const scheme of ["light", "dark"]) {

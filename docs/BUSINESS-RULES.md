@@ -9,7 +9,8 @@ fix one of them in the same change.
 - Prices are in **Kuwaiti dinar (KWD)** only, stored as integer **fils** (`price_fils`; 4.000 KWD = `4000`) and always shown with 3 decimals (`4.000 KWD`). A price of 0 shows as "Free". (`catalog/products.json`, `money()` in `src/app.js`, `tools/build.mjs` and `worker/email.js`)
 - The price charged is always computed **on the server** from `catalog/products.json`. Anything the browser sends about price is ignored. (`checkout()` in `worker/index.js`)
 - A **bundle** (`includes: [...]`) is sold at its own price and delivers the files of every included product, plus any files in its own folder. Today the only bundle is AI Revolution Collection (24.000 KWD): Productivity Handbook + Art in the Age of AI + Super Coder.
-- **Free products** (Fun Kuwait font, Super Coder source code) go through the same checkout, minus payment: the email must still be confirmed.
+- **Free products** go through the same checkout, minus payment: the email must still be confirmed.
+- **Hidden products** (`"hidden": true` in `catalog/products.json`) get no page, listing or sitemap entry, and their URL redirects to `/collections/all`. Since 19 Nov 2026 the Fun Kuwait font and the Super Coder source code are hidden (owner: no files for now). Remove the flag to bring them back.
 - Every ebook is delivered in **three formats**: EPUB, PDF (5x8) and Mobi (Kindle), all in its folder `ebooks/<handle>/` and all named after the book. Every file in the folder goes to the buyer. Product pages say "Formats: EPUB, PDF and Mobi (Kindle)".
 - A product is **sellable only when its file exists** in the private bucket under `ebooks/<handle>/`. Products without one show "Coming soon", and checkout refuses them with a 409. A bundle is sellable when all its parts are. (`listFiles()`, `availableHandles()`, `/api/stock`)
 
