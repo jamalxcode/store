@@ -48,7 +48,7 @@ Things that cost time or weren't obvious, so the next session doesn't relearn th
 
 ## Ebook files
 
-- The owner's ebooks are on Draft2Digital (EPUB, Mobi, PDF 4.5x6 and 5x8, samples). The store uses **EPUB + PDF 5x8**; Mobi is obsolete.
+- The owner's ebooks are on Draft2Digital (EPUB, Mobi, PDF 4.5x6 and 5x8, samples). The store delivers **EPUB + PDF 5x8 + Mobi** (the owner wants Mobi for older Kindles, even though Amazon now accepts EPUB).
 - Easiest bulk upload for the owner: drag everything into the `sala-ebooks` bucket in the Cloudflare dashboard. Claude then copies each file to `ebooks/<handle>/<Nice Name>.<ext>` through the API, checking the EPUB `<dc:title>` or the PDF's first page.
 - Bulk-deleting objects from the session is blocked by the auto-mode safety check. Ask the owner to confirm, or have them delete in the dashboard.
 
