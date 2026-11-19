@@ -46,6 +46,12 @@ Things that cost time or weren't obvious, so the next session doesn't relearn th
 - Tap's public docs don't describe the webhook `hashstring` format reliably, so the store doesn't depend on it. It
   re-fetches the charge with the secret key instead, which is stronger anyway.
 
+## Ebook files
+
+- The owner's ebooks are on Draft2Digital (EPUB, Mobi, PDF 4.5x6 and 5x8, samples). The store uses **EPUB + PDF 5x8**; Mobi is obsolete.
+- Easiest bulk upload for the owner: drag everything into the `sala-ebooks` bucket in the Cloudflare dashboard. Claude then copies each file to `ebooks/<handle>/<Nice Name>.<ext>` through the API, checking the EPUB `<dc:title>` or the PDF's first page.
+- Bulk-deleting objects from the session is blocked by the auto-mode safety check. Ask the owner to confirm, or have them delete in the dashboard.
+
 ## Company documents
 
 - The MOCI register form (بيانات المستفيدين) gives the CR number (same as the licence, 502625), legal form and licence type, but it also holds the owner's civil ID, passport, birth date, home address and phone. Never commit it, and never publish the home address (checklist ID-06). It has no capital figure.

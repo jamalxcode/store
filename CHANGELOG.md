@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-19
+
+- All 17 ebooks uploaded to the private bucket as EPUB + PDF, with clean file names and each title checked. 18 of 20 products are on sale, including the bundle. Still missing: the Fun Kuwait font and the Super Coder source code.
+
 ## 2026-11-18 (later)
 
 ### Added: Kuwait MOCI website checklist
