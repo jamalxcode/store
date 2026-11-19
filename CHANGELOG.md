@@ -1,60 +1,68 @@
 # Changelog
 
+Newest first. Test address: https://sala-store.jamal-akuna-matata.workers.dev (sala.company is still on Shopify).
+
 ## 2026-11-19
 
-- All 17 ebooks uploaded to the private bucket as EPUB + PDF + Mobi (Kindle). Product pages list the formats. with clean file names and each title checked. 18 of 20 products are on sale, including the bundle. The Fun Kuwait font and Super Coder source code are hidden for now (new `hidden` flag; their URLs redirect to the shop). The home page button and announcement for the free font were replaced. The store is complete apart from the Tap keys.
-
-## 2026-11-18 (later)
-
-### Added: Kuwait MOCI website checklist
-- The owner's checklist is saved in `docs/compliance/`, and the store has been audited control by control (`docs/compliance/AUDIT.md`).
-- Arabic-first company identity block in every footer and email (`src/identity.js`), with separate lines for the license and the CR number.
-- Arabic information on every product page (title, description, price in د.ك, delivery, payment, returns).
-- Arabic/English e-invoice for every paid order (`/invoice`), linked from the receipt email, order page and My downloads.
-- Contact and complaints page with a reference number, owner alert, D1 storage (migration `0002_complaints`) and escalation to MOCI (135).
-- Checkout shows the final total, delivery, returns and invoice note before payment. Terms agreement in Arabic as well.
-- Receipt and code emails are now bilingual, Arabic first.
-- 3 new end-to-end tests (23 total); the browser check now covers 17 pages.
-
-### Company register details
-- From the commercial register extract: CR **502625** (23/05/2024), licence **2024/16512** (freelance business licence), legal form **شركة الشخص الواحد**, capital **1000 KWD**. All are in the identity block on every page, email and invoice (capital on invoices). Earlier versions called 502625 the licence number, which was wrong. The documents themselves aren't stored in the repo, which is public.
-
-### Owner answers applied
-- Phone **+965 41030312** and capital **1000 KWD fully paid** on every footer, invoice and email.
-- Policies updated with approval: the privacy policy now matches the new store (no address; Tap, Cloudflare, Resend, GoatCounter; Shopify removed). CR and licence numbers corrected in all policies. Contact information gains legal form, capital, phone and complaints.
-- Refund policy and Arabic product texts kept as is. Newsletter, search and orders page not wanted for now. Cutover tentatively about 2 December 2026.
-
-### Still open
-- Confirm that licensed activity 620200 covers ebook sales (MOCI).
-- Tap test key in Cloudflare; ebook files pulled from Shopify.
-- Privacy policy update (draft waiting for approval).
-
-## 2026-11-18 (earlier)
-
-### Live (test address)
-- The store runs at **https://sala-store.jamal-akuna-matata.workers.dev** on Cloudflare. GitHub deploys it after tests pass on `main`. sala.company is still on Shopify.
-- Resend email set up: `sala.company` verified (Ireland, auto-configured on GoDaddy). The test code email reached the inbox.
-- Cloudflare: D1 database `store`, private R2 bucket `sala-ebooks` (Eastern Europe), Worker `sala-store` with `SIGNING_SECRET` and `RESEND_API_KEY`.
-- Waiting for: Tap API keys (requested from Tap support), the ebook files, and the Ministry of Commerce conditions list.
+### Ebooks loaded
+- All **17 ebooks** are in the private bucket `sala-ebooks`, each as **EPUB, PDF (5x8) and Mobi (Kindle)**: 51 files, 1.2 GB. They come from the owner's Draft2Digital account. Before going live, each file's title was checked against its book (EPUB `<dc:title>` or the PDF's first page), and each file was named after its book (e.g. `The Nadia Upgrade.epub`).
+- **18 products are on sale**: 17 ebooks plus the AI Revolution Collection bundle, which delivers 9 files.
+- Product pages list the formats: "EPUB, PDF and Mobi (Kindle)", in Arabic too.
+- The owner bulk-uploaded through the Cloudflare dashboard. Claude sorted the files into `ebooks/<handle>/` and deleted the loose copies.
 
 ### Changed
-- Ebook bucket renamed from `sala-store-files` to `sala-ebooks`, so it could live in Eastern Europe. The old name was locked to North America.
-- Deploys go through GitHub Actions, because `wrangler deploy` can't upload assets from the cloud session. Only the `CLOUDFLARE_API_TOKEN` repository secret is needed.
-- `SITE_URL` is unset until cutover, so emails and Tap redirects use whichever address the store is reached at.
+- New `hidden` flag in `catalog/products.json`. A hidden product has no page, listing or sitemap entry, and its URL redirects to `/collections/all`.
+- **Fun Kuwait font** and **Super Coder source code** are hidden until their files exist (owner decision).
+- Home page: the "Get the free font" button is now "Children's books", and the free-font announcement is removed.
+
+### Status
+- The store is complete except for payments: **waiting on Tap support for API keys**.
+
+## 2026-11-18 (evening): Kuwait Ministry of Commerce checklist
+
+### Added
+- The owner's MOCI website checklist (`docs/compliance/KUWAIT-WEBSITE-CHECKLIST.md`) and a control-by-control audit (`docs/compliance/AUDIT.md`).
+- An Arabic-first **company identity block** in every page footer, email and invoice (`src/identity.js`, data in `catalog/site.json`).
+- **Arabic product information** on every product page: title, description, price in د.ك, formats, delivery, payment, returns.
+- An **Arabic/English e-invoice** for every paid order (`/invoice`), linked from the receipt email, the order page and My downloads, and printable.
+- A **contact and complaints page** (`/complaints`): reference number by email, owner alert, stored in D1 (migration `0002_complaints`), escalation to MOCI (online service, phone 135).
+- Checkout shows, before payment: the final total, delivery, returns and an invoice note. The terms agreement is in Arabic too.
+- Code and receipt emails are bilingual, Arabic first.
+- End-to-end tests went from 20 to 23.
+
+### Company details (from the official register extract)
+- Commercial register **502625** (23/05/2024), licence **2024/16512** (freelance business licence), **Single Person Company**, capital **1,000 KWD fully paid**, activity **620200**, phone **+965 41030312**.
+- Earlier text, including the Shopify policies, called 502625 the "commercial license". It's the register number, and this is now corrected everywhere.
+- The register documents aren't stored in the repo, which is public. One of them holds personal data.
+
+### Policies (owner-approved edits)
+- **Privacy policy**: rewritten sections 1 and 3 (EN and AR) to match the new store. It now lists name, email and IP; no address; Tap, Cloudflare, Resend and GoatCounter. Shopify is removed. Marked "updated 18 November 2026".
+- **Contact information**: adds legal form, CR, licence, capital, phone and the complaints link.
+- **Refund policy**: register and licence numbers corrected. The wording is otherwise unchanged (owner decision).
+
+## 2026-11-18 (afternoon): test store live
+
+- Deployed to Cloudflare: Worker `sala-store`, D1 database `store`, R2 bucket `sala-ebooks` (Eastern Europe).
+- Deploys run through GitHub Actions (Test, then Deploy), because `wrangler deploy` can't upload assets from the cloud session.
+- **Resend** set up: `sala.company` verified (Ireland region, records auto-added on GoDaddy). Code emails reach the Gmail inbox.
+- The ebook bucket was renamed from `sala-store-files` to `sala-ebooks`, because a deleted bucket's name keeps its old region.
+- `SITE_URL` stays unset until cutover, so links follow whichever address the store is reached at.
+- Tap API keys requested from Tap support.
+
+## 2026-11-18 (morning): store built
 
 ### Added
 - **The store**, built as one Cloudflare Worker:
-  - Static storefront generated from `catalog/` (20 products, 4 collections, 11 blog posts, 5 bilingual policies) at the same URLs as Shopify. Old Shopify links redirect.
-  - Brand design from the logo (yellow, magenta, purple), light and dark mode, phone layout, video trailers, Atom feed, sitemap, structured data, strict CSP.
-  - Checkout with only a confirmed email, a name and agreement to the terms. No address.
-  - Tap charges confirmed by asking Tap directly. Fulfilment happens once.
-  - Receipt emails with download links and the Ministry of Commerce details, plus an owner alert for each order.
-  - Signed, expiring (7 days), counted (20 per file) downloads from a private R2 bucket.
-  - "My downloads" page in place of customer accounts.
+  - Static pages generated from `catalog/` (products, collections, 11 blog posts, 5 bilingual policies) at the same URLs as Shopify. Old Shopify links redirect.
+  - Brand design from the logo (yellow, magenta, purple), light and dark mode, phone layout, video trailers (re-encoded from about 33 MB to about 10 MB), Atom feed, sitemap, structured data, strict CSP.
+  - **Checkout**: a confirmed email (6-digit code), a name and agreement to the terms. No address and no account.
+  - **Tap** charges are only marked paid when Tap itself confirms `CAPTURED` with the matching amount, currency and order id. Fulfilment happens once.
+  - Receipt emails with download links, and an owner alert for each order.
+  - Signed, expiring (7 days), counted (20 per file) downloads from the private R2 bucket.
+  - **My downloads** replaces customer accounts.
   - Rate limits, an audit log and 5-year order records in D1.
-- Tests: 20 end-to-end checks running the real Worker against fake Tap and Resend (`npm test`), plus a browser check of 15 pages × phone/desktop × light/dark with axe (`npm run ui-check`). Both run on GitHub.
-- Tools: `snapshot.py` (public Shopify pull), `import-shopify.mjs`, `media.mjs` (web-sized images and trailers), `upload-ebooks.mjs`, `build.mjs`.
-- Docs: requirements, Shopify audit, deploy guide, business rules, lessons learned, to-do list.
+- Tests: end-to-end checks of the real Worker against fake Tap and Resend (`npm test`), and a browser check of every page × phone/desktop × light/dark with axe (`npm run ui-check`). Both run on GitHub.
+- Tools: `snapshot.py`, `import-shopify.mjs`, `media.mjs`, `upload-ebooks.mjs`, `build.mjs`.
 
 ### Research
-- Audited the Shopify store: Dawn 15.2.0 theme, KWD only, 20 digital products, Tap payments, Ministry of Commerce details in the policies and the welcome blog post. Saved a public snapshot in `shopify-export/`.
+- Audited the Shopify store: Dawn 15.2.0 theme, KWD only, 20 digital products, Tap payments, Ministry of Commerce details in the policies. Saved a public snapshot in `shopify-export/`.

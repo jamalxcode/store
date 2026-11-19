@@ -1,43 +1,38 @@
 # To do
 
-Status on 2026-11-18: the test store is live at https://sala-store.jamal-akuna-matata.workers.dev, deployed by
-GitHub (Actions → Deploy). sala.company still runs on Shopify.
+Status on **19 November 2026**: the store is complete apart from payments. It's live for testing at
+https://sala-store.jamal-akuna-matata.workers.dev and deployed by GitHub (Actions → Test → Deploy). sala.company still
+runs on Shopify. Cutover is planned for **about 2 December 2026** (tentative).
 
-## Owner (needs you)
+## Open
 
-1. [x] **Resend** (done 2026-11-18, region Ireland, auto-configured on GoDaddy): sign up, add the domain `sala.company`, send the DNS records it shows, and say where the domain is registered.
-2. [x] **Resend key**: paste it into Cloudflare → Workers & Pages → sala-store → Settings → Variables and Secrets, as secret `RESEND_API_KEY`.
-3. [ ] **Waiting on Tap support** for API keys (as of 19 Nov). **Tap test key** (`sk_test_…`): add it in the same place as secret `TAP_SECRET_KEY`.
-4. [x] **Ebook files**: all 17 books are in R2 as EPUB + PDF + Mobi (19 Nov), downloaded from Draft2Digital, titles checked. The bundle is available too.
-4a. [-] Fun Kuwait font and Super Coder source code: **hidden from the store** (owner, 19 Nov). To bring them back, upload the files and remove `"hidden": true`.
-4b. [x] Loose upload copies deleted (19 Nov). The bucket holds only `ebooks/` (17 books × EPUB, PDF and Mobi = 51 files, 1.2 GB).
-5. [x] **Ministry of Commerce checklist** received (`docs/compliance/KUWAIT-WEBSITE-CHECKLIST.md`). Audit: `docs/compliance/AUDIT.md`.
-5a. [x] From the register extract: **CR 502625**, **licence 2024/16512**, شركة الشخص الواحد, capital 1000 KWD, now shown everywhere.
-5f. [ ] **Licensed activity is only 620200 (computer consulting).** Ask MOCI whether it covers selling ebooks online, or add a digital-content / e-commerce activity.
-5g. [x] Policies corrected to CR 502625 / licence 2024/16512 (owner approved).
-5b. [x] Capital 1000 KWD, fully paid: on invoices and the contact information page.
-5c. [x] Business phone **+965 41030312**: in the footer, invoices, emails and contact pages.
-5e. [ ] Freelance licence: add the company name and CR 502625 to every social profile bio, and list the sites in the annual MOCI update.
-5d. [ ] Confirm the licensed activities cover selling digital products (licence and CR extract).
-6. [ ] **Tap details**: direct Tap merchant account or Shopify plugin only? Which payment methods are on (KNET, cards, Apple Pay)?
-7. [x] **Privacy policy** updated (owner approved). Was: approve the draft in `docs/compliance/AUDIT.md` (drops "billing address" and Shopify; adds IP, Tap, Cloudflare, Resend, GoatCounter). This is a failing check (CX-06).
-7a. [x] Refund policy and Arabic product texts kept as is (owner decision).
-8. [ ] Optional: Shopify orders and customers export, so past buyers can download again and the newsletter list carries over.
-9. [ ] Cutover: **about 2 December 2026 (tentative)**, two weeks after 18 Nov, once the test purchase works.
+### Owner
+1. [ ] **Tap API keys.** Waiting on Tap support (emailed 18 Nov). When they arrive, add the test secret key (`sk_test_…`) in Cloudflare → Workers & Pages → sala-store → Settings → Variables and Secrets → Production, as secret `TAP_SECRET_KEY`.
+2. [ ] **Tap details.** Which payment methods are on (KNET, Visa/Mastercard, Apple Pay)? Is the money paid into the company bank account?
+3. [ ] **Licensed activity.** The licence has only **620200** (computer consulting and facilities management). Ask MOCI whether that covers selling ebooks online, or add a digital-content / e-commerce activity.
+4. [ ] **Social profiles** (freelance licence rule). Add "شركة سلة لأنشطة الخبرة الاستشارية الحاسوبية | س.ت 502625" to every social profile bio. List sala.company, go.sala.company and the social accounts in the annual MOCI update.
+5. [ ] Optional: a Shopify orders and customers export, so past buyers can download again and the email list carries over. Keep it private and out of git.
+6. [ ] Optional: the Fun Kuwait font file and the Super Coder source-code `.zip`. Both products are hidden until then.
 
-## Claude (after the owner items above)
+### Claude
+7. [ ] **First real test purchase** with Tap test keys (after 1). Run the checklist in `docs/DEPLOY.md`: paid, declined, webhook, email, downloads in all three formats, invoice. Fix anything where the real Tap API differs from the fake one used in tests.
+8. [ ] **Cutover** (after 7, about 2 Dec). Follow `docs/DEPLOY.md` → "Cutover from Shopify": move DNS to Cloudflare (keep the Resend records), add the custom domain and `SITE_URL`, switch to the Tap live key, set the Tap webhook URL, remove the domain from Shopify.
 
-10. [x] Point the Resend DNS records at the domain and check that code emails arrive (after 1–2). Verified: the code email reached the Gmail inbox, not spam.
-11. [ ] Real test purchase with a Tap test card: paid, declined, then the webhook. Check the real Tap API matches the code (after 3).
-12. [x] Ebook bucket is now `sala-ebooks` in Eastern Europe. A deleted bucket's name keeps its old region, so it got a new name.
-13. [ ] Upload the ebooks, then check each product's download (after 4).
-14. [x] Checklist applied: Arabic identity footer, Arabic product info, Arabic/English e-invoice, complaints page with MOCI escalation, pre-payment disclosures. The rest waits on 5a–5d and 7.
-15. [-] Newsletter, search and orders page: not wanted for now (owner, 18 Nov).
-16. [-] Owner orders page: not wanted for now.
-17. [ ] Cutover: DNS to Cloudflare, add the custom domain and `SITE_URL`, switch to Tap live keys, set the Tap webhook URL, remove the domain from Shopify.
+## Done
 
-## Dropped from Shopify (decide if needed)
+- [x] Shopify audit and public snapshot (18 Nov).
+- [x] Store built as a Cloudflare Worker, with tests (18 Nov).
+- [x] Cloudflare set up: Worker, D1 `store`, R2 `sala-ebooks` in Eastern Europe, GitHub deploy secret (18 Nov).
+- [x] Resend: domain verified (Ireland, auto-configured on GoDaddy), key in Cloudflare, test email reached the inbox (18 Nov).
+- [x] MOCI checklist applied: identity block, Arabic product info, e-invoice, complaints page, pre-payment disclosures (18 Nov).
+- [x] Company details from the register extract: CR 502625, licence 2024/16512, Single Person Company, capital 1,000 KWD paid, phone +965 41030312 (18 Nov).
+- [x] Policies updated with approval: privacy rewritten, numbers corrected, contact information completed (18 Nov).
+- [x] All 17 ebooks uploaded as EPUB, PDF and Mobi (51 files), titles checked, loose copies deleted (19 Nov).
+- [x] Free font and source code hidden (19 Nov).
 
+## Decided not to do (for now)
+
+- Newsletter signup, site search, an owner orders page (owner, 18 Nov). Orders are viewable with the `wrangler d1` commands in `docs/DEPLOY.md`.
+- Refund-policy legal review and a review of the Arabic product texts (owner: keep as is).
 - Customer accounts with passwords (replaced by the email code and My downloads).
-- AI shopping agent endpoints (`agents.md`, UCP/MCP).
-- Shop Pay and the country/currency selector (KWD only, as before).
+- Shopify's AI shopping-agent endpoints (`agents.md`, UCP/MCP), Shop Pay, the country/currency selector (KWD only, as before).

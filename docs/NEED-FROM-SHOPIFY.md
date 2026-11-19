@@ -1,34 +1,20 @@
-# What we still need from the owner / Shopify admin
+# What we needed from the owner / Shopify
 
-## To go live (new accounts)
+Kept for history. Everything still open now lives in [TODO.md](TODO.md).
 
-- **Cloudflare**: account plus an API token (Workers, D1, R2 edit). See `docs/DEPLOY.md`.
-- **Resend**: account, verify the `sala.company` domain, plus an API key. Sends the email codes and receipts.
-- **Tap**: test and live secret keys from the Tap dashboard.
+| Item | Status |
+|---|---|
+| Ebook files | **Done** (19 Nov): from Draft2Digital, not Shopify. 17 books × EPUB, PDF and Mobi. No Shopify admin access was needed |
+| Ministry of Commerce conditions | **Done**: owner's checklist in `compliance/`, audit in `compliance/AUDIT.md` |
+| Company register details | **Done**: from the official register extract (CR 502625, licence 2024/16512) |
+| Cloudflare account and API token | **Done** (18 Nov) |
+| Resend account, domain and key | **Done** (18 Nov) |
+| Tap API keys | **Open**: waiting on Tap support. Their legacy dashboard (used through Shopify) has no API-keys page |
+| Tap payment methods / settlement account | **Open** |
+| Shopify orders and customers export | Optional, not done. Lets past buyers download again and carries the email list over |
+| Discount codes | None in use |
+| Theme export, logo | Not needed: the logo came from the public site (`shopify-export/media/theme/logo.png`) |
+| Font file, source-code zip | Not available. Both products are hidden |
 
-## From Shopify
-
-The public storefront gave us the catalog, images, trailers, blog and policies (see `shopify-export/`). These items are
-only available from the Shopify admin or from the owner. **Never commit secrets or customer data to this repo.** Send
-keys through the cloud environment's credential prompt and keep customer exports out of git.
-
-## Must have
-
-1. **The ebook files** (PDF/EPUB/ZIP/font files) for all 20 products. Shopify admin → Apps → Digital Downloads (or
-   whichever app delivers them) → each product → download the attached file. Also: which app is it?
-2. **The Ministry of Commerce conditions list**: which statements are required and where (home page, footer, checkout, invoice),
-   plus the URLs of any compliance blog posts that are hidden or unlisted (only 11 public posts were found, all in `news`).
-3. **Tap account details**: direct Tap merchant account or Shopify-only plugin? Payment methods enabled (KNET, Visa/MC,
-   Apple Pay)? Test and live secret keys (provided later as a credential, not in chat).
-
-## Nice to have
-
-4. Orders export (Admin → Orders → Export, CSV), so past buyers can still get their downloads. This stays private and out of git.
-5. Customers and email-subscriber export (Admin → Customers → Export), for the newsletter list. Private.
-6. Discount codes in use (Admin → Discounts).
-7. Theme export (Online Store → Themes → … → Download theme file) if you want the exact Dawn settings. Not required.
-8. A logo file if one exists (the store uses a text logo).
-9. Where email is sent from today (Shopify Email) and which address buyers should see as the sender.
-
-A **Shopify Admin API token** (custom app with read_products, read_orders, read_customers and read_files scopes) would
-let a script pull items 1 and 4–6 automatically. It's optional; manual exports work too.
+Rules that still apply: never commit secrets or customer data. Keys go into Cloudflare's dashboard or the session's
+secure credential form, never into chat or git. The register documents aren't stored in the repo, which is public.
